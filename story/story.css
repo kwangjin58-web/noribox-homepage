@@ -34,6 +34,11 @@
 .post-body li { margin-bottom: .55em; }
 .post-body li::marker { color: var(--cobalt); }
 .post-body a { color: var(--cobalt); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+.sources { margin-top: 70px; padding-top: 36px; border-top: 1px solid rgba(46,46,46,.16); }
+.sources h2 { margin-bottom: 20px; font-size: 24px; font-weight: 400; }
+.sources ul { margin: 0; padding-left: 1.25em; }
+.sources li { margin-bottom: 8px; }
+.sources a { color: var(--cobalt); text-decoration: underline; text-underline-offset: .2em; }
 .faq { margin-top: 90px; }
 .faq > h2 { margin-bottom: 24px; font-size: 28px; font-weight: 400; }
 .faq details { padding: 20px 0; border-top: 1px solid rgba(46,46,46,.18); }
