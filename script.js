@@ -58,12 +58,6 @@ const makeElement = (tag, className, text) => {
 
 const createHomeProduct = (product, index) => {
   const card = makeElement('article', 'product-card reveal');
-  const link = makeElement('a');
-  link.href = product.url;
-  link.target = '_blank';
-  link.rel = 'noopener';
-  link.setAttribute('aria-label', `${product.name} 구매하기`);
-
   const figure = makeElement('figure');
   const image = makeElement('img');
   image.src = product.image;
@@ -72,15 +66,47 @@ const createHomeProduct = (product, index) => {
   figure.append(image);
 
   const meta = makeElement('div', 'card-meta');
+  const buyLink = makeElement('a', 'buy-button');
+  buyLink.href = product.url;
+  buyLink.target = '_blank';
+  buyLink.rel = 'noopener';
+  buyLink.setAttribute('aria-label', `${product.name} 구매하기`);
+  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
+  const row = makeElement('div', 'product-card-row');
+  row.append(makeElement('strong', 'product-price', `${priceFormatter.format(product.price)}원`), buyLink);
   meta.append(
-    makeElement('span', '', `${String(index + 1).padStart(2, '0')} · SMARTSTORE`),
+    makeElement('span', '', `${String(index + 1).padStart(2, '0')} · CURATED`),
     makeElement('h3', '', product.name),
-    makeElement('p', 'product-price', `${priceFormatter.format(product.price)}원`),
-    makeElement('i', '', '↗')
+    makeElement('p', 'product-tagline', product.tagline || ''),
+    row
   );
-  meta.lastElementChild.setAttribute('aria-hidden', 'true');
-  link.append(figure, meta);
-  card.append(link);
+  card.append(figure, meta);
+  return card;
+};
+
+const createFeaturedProduct = (product) => {
+  const card = makeElement('article', 'featured-product-card reveal');
+  const figure = makeElement('figure');
+  const image = makeElement('img');
+  image.src = product.image;
+  image.alt = product.name;
+  figure.append(image);
+
+  const body = makeElement('div', 'featured-product-body');
+  const buyLink = makeElement('a', 'button button-dark');
+  buyLink.href = product.url;
+  buyLink.target = '_blank';
+  buyLink.rel = 'noopener';
+  buyLink.setAttribute('aria-label', `${product.name} 구매하기`);
+  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
+  body.append(
+    makeElement('span', 'featured-product-label', 'NORIBOX PICK'),
+    makeElement('h3', '', product.name),
+    makeElement('p', 'featured-product-tagline', product.tagline || ''),
+    makeElement('strong', 'featured-product-price', `${priceFormatter.format(product.price)}원`),
+    buyLink
+  );
+  card.append(figure, body);
   return card;
 };
 
@@ -118,8 +144,9 @@ const showProductError = (container) => {
 };
 
 const homeProducts = document.querySelector('[data-home-products]');
+const featuredProduct = document.querySelector('[data-featured-product]');
 const catalogProducts = document.querySelector('[data-products]');
-if (homeProducts || catalogProducts) {
+if (homeProducts || featuredProduct || catalogProducts) {
   fetch('products.json')
     .then((response) => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -128,10 +155,13 @@ if (homeProducts || catalogProducts) {
     .then((data) => {
       if (!Array.isArray(data.products)) throw new Error('Invalid product data');
 
-      if (homeProducts) {
-        const cards = data.products.slice(0, 6).map(createHomeProduct);
+      if (homeProducts && featuredProduct) {
+        const featured = data.products.find((product) => product.name === '노리박스 신형HX 32+ 강화유리 아크릴튜닝 스탠드형 오락실게임기') || data.products[0];
+        const featuredCard = createFeaturedProduct(featured);
+        const cards = data.products.filter((product) => product !== featured).slice(0, 5).map(createHomeProduct);
+        featuredProduct.replaceChildren(featuredCard);
         homeProducts.replaceChildren(...cards);
-        activateReveal(cards);
+        activateReveal([featuredCard, ...cards]);
       }
 
       if (catalogProducts) {
@@ -144,6 +174,7 @@ if (homeProducts || catalogProducts) {
     })
     .catch(() => {
       if (homeProducts) showProductError(homeProducts);
+      if (featuredProduct) showProductError(featuredProduct);
       if (catalogProducts) showProductError(catalogProducts);
     });
 }
