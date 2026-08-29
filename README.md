@@ -24,3 +24,5 @@
 ```powershell
 python -m http.server 4173
 ```
+
+Vercel 배포에서는 `vercel.json`의 `cleanUrls` 설정으로 `about.html`을 `/about` 주소에서도 제공합니다.
