@@ -57,7 +57,7 @@ const makeElement = (tag, className, text) => {
 };
 
 const createHomeProduct = (product, index) => {
-  const card = makeElement('article', `product-card reveal${index === 2 ? ' product-card-wide' : ''}`);
+  const card = makeElement('article', 'product-card reveal');
   const link = makeElement('a');
   link.href = product.url;
   link.target = '_blank';
@@ -129,7 +129,7 @@ if (homeProducts || catalogProducts) {
       if (!Array.isArray(data.products)) throw new Error('Invalid product data');
 
       if (homeProducts) {
-        const cards = data.products.slice(0, 3).map(createHomeProduct);
+        const cards = data.products.slice(0, 6).map(createHomeProduct);
         homeProducts.replaceChildren(...cards);
         activateReveal(cards);
       }
