@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="스마트스토어에서 판매 중인 노리박스 오락실게임기와 액세서리를 확인하세요.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>제품 | 노리박스</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6FED'/%3E%3Cpath d='M17 43V21h8l14 14V21h8v22h-8L25 29v14z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="product-page">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="노리박스 홈"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="index.html#home">홈</a><a href="about.html">내 소개</a><a href="products.html" aria-current="page">제품</a><a href="index.html#stories">이야기</a><a href="index.html#contact">연락하기</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="catalog-hero section-space" aria-labelledby="catalog-title">
+      <div class="section-label">PRODUCTS · NORIBOX</div>
+      <div class="catalog-hero-copy reveal">
+        <h1 id="catalog-title">당신의 공간에 맞는<br>즐거움을 찾아보세요.</h1>
+        <p>스탠드형부터 TV 연결형, 게임팩과 액세서리까지 노리박스의 전체 제품을 한곳에서 확인할 수 있습니다.</p>
+        <span data-product-count>제품 정보를 불러오는 중</span>
+      </div>
+    </section>
+
+    <section class="catalog section-space" aria-label="전체 제품">
+      <div class="catalog-grid" data-products aria-live="polite">
+        <p class="products-loading">제품 정보를 불러오고 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="catalog-contact section-space" aria-labelledby="catalog-contact-title">
+      <div class="section-label">NEED HELP?</div>
+      <div class="reveal">
+        <h2 id="catalog-contact-title">어떤 제품이 맞을지<br>고민되시나요?</h2>
+        <p>설치 공간과 함께 즐길 사람을 알려주시면 알맞은 제품을 안내해 드립니다.</p>
+        <a class="button button-light" href="index.html#contact">제품 상담하기 <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><div><span>© <span data-year></span> NORIBOX</span><a href="#main">맨 위로 ↑</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
