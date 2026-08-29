@@ -49,10 +49,12 @@ sections.forEach((section) => sectionObserver.observe(section));
 
 const form = document.querySelector('[data-contact-form]');
 const formNote = document.querySelector('[data-form-note]');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  formNote.textContent = '문의 내용이 입력되었습니다. 실제 운영 전 전송 서비스를 연결해 주세요.';
-  formNote.classList.add('is-success');
-});
+if (form && formNote) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    formNote.textContent = '문의 내용이 입력되었습니다. 실제 운영 전 전송 서비스를 연결해 주세요.';
+    formNote.classList.add('is-success');
+  });
+}
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
