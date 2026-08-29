@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="제품 뒤에 있는 사람과 만드는 과정을 기록하는 노리박스 이야기입니다.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>이야기 | 노리박스</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6FED'/%3E%3Cpath d='M17 43V21h8l14 14V21h8v22h-8L25 29v14z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="story.css">
+</head>
+<body class="story-page">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="../index.html" aria-label="노리박스 홈"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html#home">홈</a><a href="../about.html">내 소개</a><a href="../products.html">제품</a><a href="./" aria-current="page">이야기</a><a href="../index.html#contact">연락하기</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="story-hero section-space" aria-labelledby="story-title">
+      <div class="section-label">STORIES · NORIBOX</div>
+      <div class="story-hero-copy reveal"><h1 id="story-title">만드는 마음을<br>기록합니다.</h1><p>제품 뒤에 있는 사람들, 오래 고민한 과정, 함께 만든 추억을 천천히 쌓아갑니다.</p><a class="story-admin-link" href="admin.html">관리자 페이지 <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <section class="story-index section-space" aria-label="이야기 목록">
+      <ol class="blog-list" id="list" aria-live="polite"><li class="blog-loading">이야기를 불러오고 있습니다.</li></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><div><span>© <span data-year></span> NORIBOX</span><a href="#main">맨 위로 ↑</a></div></footer>
+
+  <script>
+  (function(){
+    var list = document.getElementById('list');
+    function el(tag, cls, text){ var n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; }
+    function fmtDate(s){ var d=new Date(s+'T00:00:00'); if(isNaN(d))return s||''; return d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'.'; }
+    function render(posts){
+      if(!Array.isArray(posts)||posts.length===0){ var empty=el('li','blog-empty','아직 올라온 글이 없습니다.'); list.replaceChildren(empty); return; }
+      posts=posts.slice().sort(function(a,b){ return String(b.date||'').localeCompare(String(a.date||'')); });
+      var cards=posts.map(function(p,index){
+        var li=el('li','blog-card reveal');
+        var a=el('a'); a.href=p.url?String(p.url):'post.html?id='+encodeURIComponent(p.id||'');
+        var number=el('span','blog-number',String(index+1).padStart(2,'0'));
+        var copy=el('div','blog-card-copy');
+        var time=el('time',null,fmtDate(p.date)); time.setAttribute('datetime',String(p.date||''));
+        copy.append(time,el('h2',null,String(p.title||'(제목 없음)')));
+        if(p.summary)copy.appendChild(el('p','blog-summary',String(p.summary)));
+        var arrow=el('span','blog-arrow','↗'); arrow.setAttribute('aria-hidden','true');
+        a.append(number,copy,arrow); li.appendChild(a); return li;
+      });
+      list.replaceChildren.apply(list,cards);
+      if(window.activateReveal)window.activateReveal(cards);
+      else cards.forEach(function(card){card.classList.add('is-visible');});
+    }
+    fetch('posts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(render).catch(function(){list.replaceChildren(el('li','blog-empty','글 목록을 불러오지 못했습니다.'));});
+  })();
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

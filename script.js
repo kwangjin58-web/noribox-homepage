@@ -44,6 +44,7 @@ const activateReveal = (elements) => {
   });
 };
 
+window.activateReveal = activateReveal;
 activateReveal(document.querySelectorAll('.reveal'));
 
 const priceFormatter = new Intl.NumberFormat('ko-KR');
@@ -144,6 +145,52 @@ if (homeProducts || catalogProducts) {
     .catch(() => {
       if (homeProducts) showProductError(homeProducts);
       if (catalogProducts) showProductError(catalogProducts);
+    });
+}
+
+const formatStoryDate = (value) => {
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return value || '';
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}.`;
+};
+
+const homeStories = document.querySelector('[data-home-stories]');
+if (homeStories) {
+  fetch('story/posts.json', { cache: 'no-store' })
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return response.json();
+    })
+    .then((posts) => {
+      if (!Array.isArray(posts)) throw new Error('Invalid story data');
+      const latest = posts
+        .slice()
+        .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+        .slice(0, 3);
+      const cards = latest.map((post) => {
+        const card = makeElement('article', 'story-card reveal');
+        const href = post.url
+          ? `story/${String(post.url).replace(/^\.\//, '')}`
+          : `story/post.html?id=${encodeURIComponent(post.id || '')}`;
+        card.append(
+          makeElement('span', '', formatStoryDate(post.date)),
+          makeElement('h3', '', post.title || '(제목 없음)'),
+          makeElement('p', '', post.summary || '')
+        );
+        const link = makeElement('a', '', '이야기 읽기 ');
+        link.href = href;
+        const arrow = makeElement('span', '', '→');
+        arrow.setAttribute('aria-hidden', 'true');
+        link.append(arrow);
+        card.append(link);
+        return card;
+      });
+      homeStories.replaceChildren(...cards);
+      activateReveal(cards);
+    })
+    .catch(() => {
+      const error = makeElement('p', 'stories-loading', '이야기를 불러오지 못했습니다.');
+      homeStories.replaceChildren(error);
     });
 }
 

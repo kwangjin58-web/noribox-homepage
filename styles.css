@@ -75,12 +75,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .products-loading { grid-column: 1 / -1; min-height: 160px; display: grid; place-items: center; color: rgba(46,46,46,.6); }
 
 .stories { border-top: 1px solid rgba(46,46,46,.16); }
-.story-list { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.story-card { min-height: 360px; padding: 42px; border: 1px solid rgba(46,46,46,.18); position: relative; transition: transform .25s ease, border-color .25s ease; }
+.story-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.story-card { min-height: 380px; padding: 42px 42px 90px; border: 1px solid rgba(46,46,46,.18); position: relative; transition: transform .25s ease, border-color .25s ease; }
 .story-card:hover { transform: translateY(-8px); border-color: var(--cobalt); }
 .story-card h3 { margin: 50px 0 24px; font-size: clamp(24px, 2.1vw, 34px); font-weight: 300; line-height: 1.45; }
-.story-card p { max-width: 40ch; color: rgba(46,46,46,.65); }
+.story-card p { max-width: 40ch; display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; color: rgba(46,46,46,.65); }
 .story-card a { position: absolute; left: 42px; bottom: 36px; font-size: 12px; font-weight: 500; }
+.stories-more { margin-top: 62px; display: flex; justify-content: flex-end; }
+.stories-loading { grid-column: 1 / -1; min-height: 180px; display: grid; place-items: center; color: rgba(46,46,46,.6); }
 
 .contact { padding-left: max(40px, calc((100vw - 1320px) / 2)); padding-right: max(40px, calc((100vw - 1320px) / 2)); display: grid; grid-template-columns: 1.05fr .95fr; gap: 10vw; background: var(--cobalt); color: var(--white); }
 .contact-copy h2 { max-width: 14ch; margin: 35px 0 0; font-size: clamp(48px, 6vw, 90px); font-weight: 300; letter-spacing: -.05em; line-height: 1.12; }
@@ -206,7 +208,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .product-card figure, .product-card-wide figure { height: 112vw; max-height: 520px; }
   .card-meta { padding-right: 32px; }
   .card-meta h3 { min-height: 0; }
-  .story-card { min-height: 350px; padding: 30px 24px; }
+  .story-card { min-height: 350px; padding: 30px 24px 82px; }
   .story-card a { left: 24px; }
   .contact { padding-left: 18px; padding-right: 18px; }
   .contact-copy h2 { font-size: 45px; }

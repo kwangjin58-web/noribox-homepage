@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="theme-color" content="#FFFFFF">
+  <link rel="canonical" href="">
+  <meta property="og:type" content="article"><meta property="og:title" content=""><meta property="og:description" content=""><meta property="og:url" content="">
+  <title>이야기 | 노리박스</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6FED'/%3E%3Cpath d='M17 43V21h8l14 14V21h8v22h-8L25 29v14z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="story.css">
+</head>
+<body class="story-page post-page">
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+  <header class="site-header" data-header>
+    <a class="brand" href="../index.html" aria-label="노리박스 홈"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html#home">홈</a><a href="../about.html">내 소개</a><a href="../products.html">제품</a><a href="./" aria-current="page">이야기</a><a href="../index.html#contact">연락하기</a></nav>
+  </header>
+
+  <div class="post-wrap">
+    <div class="post-top"><a class="back" href="./">← 이야기 목록</a></div>
+    <main id="main" aria-live="polite"></main>
+  </div>
+
+  <footer class="site-footer"><a class="brand" href="../index.html"><span class="brand-dot" aria-hidden="true"></span>NORIBOX</a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><div><span>© <span data-year></span> NORIBOX</span><a href="#main">맨 위로 ↑</a></div></footer>
+
+  <script>
+  (function(){
+    var main=document.getElementById('main');
+    function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n;}
+    function fmtDate(s){var d=new Date(s+'T00:00:00');if(isNaN(d))return s||'';return d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'.';}
+    function renderBody(src){var box=el('div','post-body');String(src||'').replace(/\r\n/g,'\n').split(/\n\s*\n/).forEach(function(block){block=block.trim();if(!block)return;var lines=block.split('\n');if(lines.every(function(l){return /^- /.test(l.trim());})){var ul=el('ul');lines.forEach(function(l){ul.appendChild(el('li',null,l.trim().slice(2)));});box.appendChild(ul);}else if(/^## /.test(block)){box.appendChild(el('h2',null,block.slice(3).trim()));}else{box.appendChild(el('p',null,block));}});return box;}
+    function notFound(){var d=el('div','notfound');d.append(el('h1',null,'글을 찾을 수 없습니다'),el('p',null,'주소가 잘못되었거나 삭제된 글일 수 있습니다.'));var a=el('a',null,'이야기 목록으로');a.href='./';d.appendChild(a);main.appendChild(d);}
+    function hrefOf(p){return p.url?String(p.url):'post.html?id='+encodeURIComponent(p.id||'');}
+    function setAttr(sel,attr,val){var n=document.querySelector(sel);if(n)n.setAttribute(attr,val);}
+    function addLd(obj){var ld=document.createElement('script');ld.type='application/ld+json';ld.textContent=JSON.stringify(obj);document.head.appendChild(ld);}
+    function setMeta(post){var title=String(post.title||'이야기');var desc=String(post.description||post.summary||'').slice(0,160);var url=location.origin+location.pathname+'?id='+encodeURIComponent(post.id||'');var author=String(post.author||'').trim();document.title=title+' | 노리박스';setAttr('meta[name="description"]','content',desc);setAttr('meta[name="author"]','content',author);setAttr('link[rel="canonical"]','href',url);setAttr('meta[property="og:title"]','content',title);setAttr('meta[property="og:description"]','content',desc);setAttr('meta[property="og:url"]','content',url);var article={'@context':'https://schema.org','@type':'BlogPosting',headline:title,description:desc,datePublished:String(post.date||''),dateModified:String(post.updated||post.date||''),mainEntityOfPage:url,keywords:Array.isArray(post.tags)?post.tags.map(String).join(', '):''};if(author)article.author={'@type':'Person',name:author};addLd(article);}
+    function renderFaq(faq){var sec=el('section','faq');sec.appendChild(el('h2',null,'자주 묻는 질문'));faq.forEach(function(f){var d=el('details');d.append(el('summary',null,String(f.q)),el('p',null,String(f.a)));sec.appendChild(d);});return sec;}
+    function render(posts){var id=new URLSearchParams(location.search).get('id')||new URLSearchParams(location.search).get('slug');posts=(Array.isArray(posts)?posts:[]).slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});var idx=posts.findIndex(function(p){return String(p.id)===id||(p.url&&String(p.url).replace(/\.html$/,'')===id);});if(idx<0){notFound();return;}var post=posts[idx];setMeta(post);var art=el('article','post-article reveal');var head=el('header','post-head');var time=el('time',null,fmtDate(post.date));time.setAttribute('datetime',String(post.date||''));head.append(time,el('h1',null,String(post.title||'(제목 없음)')));if(post.author)head.appendChild(el('p','post-author','글 · '+String(post.author)));if(Array.isArray(post.tags)&&post.tags.length){var tags=el('div','post-tags');post.tags.forEach(function(tag){tags.appendChild(el('span','post-tag',String(tag)));});head.appendChild(tags);}art.append(head,renderBody(post.body));var faq=Array.isArray(post.faq)?post.faq.filter(function(f){return f&&f.q&&f.a;}):[];if(faq.length)art.appendChild(renderFaq(faq));var prev=posts[idx+1],next=posts[idx-1];if(prev||next){var nav=el('nav','post-navigation');function cell(p,cls,label){if(!p){nav.appendChild(el('span'));return;}var a=el('a',cls);a.href=hrefOf(p);a.append(el('span','post-nav-dir',label),el('strong',null,String(p.title||'')));nav.appendChild(a);}cell(prev,'prev','이전 글');cell(next,'next','다음 글');art.appendChild(nav);}main.appendChild(art);art.classList.add('is-visible');}
+    fetch('posts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(render).catch(notFound);
+  })();
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
