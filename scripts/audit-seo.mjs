@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const site = 'https://noribox-homepage.vercel.app';
 const posts = JSON.parse(await readFile(path.join(root, 'story/posts.json'), 'utf8'));
-const baseFiles = ['index.html', 'about.html', 'products.html', 'story/index.html'];
+const baseFiles = ['index.html', 'about.html', 'products.html', 'contact.html', 'story/index.html'];
 const postFiles = posts.map((post) => `story/${post.url}`);
 const publicFiles = [...baseFiles, ...postFiles];
 const htmlByFile = new Map(await Promise.all(publicFiles.map(async (file) => [file, await readFile(path.join(root, file), 'utf8')])));
@@ -38,7 +38,7 @@ for (const [file, html] of htmlByFile) {
   for (const match of html.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>/gi)) {
     const attrs = match[0], href = match[2];
     if (/^https?:\/\//.test(href)) linksOk &&= /rel="[^"]*noopener[^"]*"/i.test(attrs) || !/target="_blank"/i.test(attrs);
-    else if (!href.startsWith('#')) {
+    else if (!href.startsWith('#') && !href.startsWith('mailto:')) {
       const clean = href.split(/[?#]/)[0];
       if (clean) {
         const target = path.resolve(path.dirname(path.join(root, file)), clean.endsWith('/') ? `${clean}index.html` : clean);

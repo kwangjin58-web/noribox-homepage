@@ -11,6 +11,7 @@
 - [홈](https://noribox-homepage.vercel.app/): 브랜드와 대표 제품
 - [브랜드소개](https://noribox-homepage.vercel.app/about.html): 시작 이야기와 제품 원칙
 - [제품](https://noribox-homepage.vercel.app/products.html): 현재 제품 목록과 구매 링크
+- [연락하기](https://noribox-homepage.vercel.app/contact.html): 이메일과 공식 SNS
 - [이야기](https://noribox-homepage.vercel.app/story/): 오락실게임기 사용·선택 가이드
 
 ## 이야기(블로그)

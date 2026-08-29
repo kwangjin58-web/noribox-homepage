@@ -110,9 +110,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .form-note { margin-top: 12px; font-size: 11px; color: rgba(46,46,46,.6); }
 .form-note.is-success { color: var(--cobalt); }
 
-.site-footer { min-height: 260px; padding: 64px max(40px, calc((100vw - 1320px) / 2)); display: grid; grid-template-columns: 1fr 1fr; align-items: start; }
+.site-footer { min-height: 330px; padding: 64px max(40px, calc((100vw - 1320px) / 2)); display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 28px 50px; }
 .site-footer > p { justify-self: end; max-width: 40ch; }
-.site-footer > div { grid-column: 1 / -1; align-self: end; display: flex; justify-content: space-between; padding-top: 36px; border-top: 1px solid rgba(46,46,46,.16); font-size: 11px; }
+.footer-links { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 14px 30px; font-size: 13px; }
+.footer-links a { padding-bottom: 3px; border-bottom: 1px solid rgba(46,46,46,.3); }
+.site-footer > .footer-bottom { grid-column: 1 / -1; align-self: end; display: flex; justify-content: space-between; padding-top: 36px; border-top: 1px solid rgba(46,46,46,.16); font-size: 11px; }
+
+/* Contact page */
+.contact-page .site-header { color: var(--charcoal); background: var(--white); }
+.contact-directory { width: var(--page); margin: 0 auto; padding-top: max(22vh, 190px); }
+.contact-directory-head { display: grid; grid-template-columns: .42fr 1.1fr .48fr; gap: 5vw; align-items: end; margin-bottom: 11vh; }
+.contact-directory-head h1 { margin: 0; font-size: clamp(58px, 7.2vw, 108px); font-weight: 300; letter-spacing: -.055em; line-height: 1.06; }
+.contact-directory-head > p { max-width: 36ch; margin: 0; color: rgba(46,46,46,.68); }
+.contact-link-list { border-top: 1px solid rgba(46,46,46,.2); }
+.contact-link-list > a { min-height: 128px; padding: 26px 0; display: grid; grid-template-columns: .42fr 1.58fr; align-items: center; gap: 8vw; border-bottom: 1px solid rgba(46,46,46,.2); transition: color .2s ease, padding-left .2s ease; }
+.contact-link-list > a:hover { padding-left: 20px; color: var(--cobalt); }
+.contact-link-list span { font-size: 12px; font-weight: 600; letter-spacing: .12em; }
+.contact-link-list strong { font-size: clamp(28px, 4vw, 58px); font-weight: 300; letter-spacing: -.035em; line-height: 1.2; overflow-wrap: anywhere; }
+.contact-link-list .contact-store-link { color: var(--cobalt); }
 
 /* Founder page */
 .about-media-hero > img { object-position: 50% 54%; }
@@ -205,6 +220,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .promise-inner { margin-left: 0; }
   .catalog-hero, .catalog-contact { grid-template-columns: 1fr; gap: 50px; }
   .catalog-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-directory-head { grid-template-columns: 1fr; gap: 28px; }
 }
 
 @media (max-width: 600px) {
@@ -237,6 +253,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .contact-form { padding: 28px 20px; }
   .site-footer { min-height: 300px; padding: 52px 18px; grid-template-columns: 1fr; gap: 24px; }
   .site-footer > p { justify-self: start; }
+  .footer-links { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .contact-directory { padding-top: 150px; }
+  .contact-directory-head h1 { font-size: 48px; }
+  .contact-link-list > a { min-height: 112px; grid-template-columns: 1fr; gap: 10px; }
+  .contact-link-list strong { font-size: 28px; }
   .brand-quote { padding-left: 18px; padding-right: 18px; }
   .brand-quote > p { font-size: 44px; }
   .brand-quote footer { margin-left: 0; }
