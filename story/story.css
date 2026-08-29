@@ -33,6 +33,7 @@
 .post-body ul { margin: 0 0 1.8em 1.25em; padding: 0; }
 .post-body li { margin-bottom: .55em; }
 .post-body li::marker { color: var(--cobalt); }
+.post-body a { color: var(--cobalt); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; }
 .faq { margin-top: 90px; }
 .faq > h2 { margin-bottom: 24px; font-size: 28px; font-weight: 400; }
 .faq details { padding: 20px 0; border-top: 1px solid rgba(46,46,46,.18); }
