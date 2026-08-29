@@ -6,13 +6,15 @@
   <meta name="description" content="노리박스는 오락실의 추억과 오늘의 즐거움을 잇는 오락실게임기 브랜드입니다.">
   <meta name="theme-color" content="#FFFFFF">
   <title>노리박스 | 세대를 잇는 즐거움</title>
-  <link rel="canonical" href="https://noribox-homepage.vercel.app/">
-  <meta property="og:type" content="website"><meta property="og:title" content="노리박스 | 세대를 잇는 즐거움"><meta property="og:description" content="노리박스는 오락실의 추억과 오늘의 즐거움을 잇는 오락실게임기 브랜드입니다."><meta property="og:url" content="https://noribox-homepage.vercel.app/">
+  <link rel="canonical" href="https://noribox.org/">
+  <meta property="og:type" content="website"><meta property="og:title" content="노리박스 | 세대를 잇는 즐거움"><meta property="og:description" content="노리박스는 오락실의 추억과 오늘의 즐거움을 잇는 오락실게임기 브랜드입니다."><meta property="og:url" content="https://noribox.org/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6FED'/%3E%3Cpath d='M17 43V21h8l14 14V21h8v22h-8L25 29v14z' fill='white'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&amp;family=Noto+Serif+KR:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"노리박스","url":"https://noribox-homepage.vercel.app/","logo":"https://noribox-homepage.vercel.app/assets/images/noribox-logo.png"},{"@type":"WebSite","name":"노리박스","url":"https://noribox-homepage.vercel.app/","inLanguage":"ko-KR"}]}</script>
+  <link rel="stylesheet" href="assets/scrub.css">
+  <link rel="stylesheet" href="assets/cart.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"노리박스","url":"https://noribox.org/","logo":"https://noribox.org/assets/images/noribox-logo.png"},{"@type":"WebSite","name":"노리박스","url":"https://noribox.org/","inLanguage":"ko-KR"}]}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -22,11 +24,17 @@
     <nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="#home">홈</a><a href="about.html">브랜드소개</a><a href="products.html">제품</a><a href="story/">이야기</a><a href="contact.html">연락하기</a></nav>
   </header>
   <main id="main">
-    <section class="media-hero" id="home" aria-labelledby="hero-title">
-      <img src="assets/images/noribox-hero.jpg" alt="밝은 거실에 놓인 노리박스 화이트 스탠드형 게임기">
-      <div class="media-scrim" aria-hidden="true"></div>
-      <div class="hero-content reveal"><p class="overline">NORIBOX · ARCADE AT HOME</p><h1 id="hero-title">세대를 잇는<br>즐거움.</h1><p>오락실의 추억을<br>오늘의 가족과 함께.</p><a class="button button-light" href="#products">제품 살펴보기 <span aria-hidden="true">↗</span></a></div>
-      <a class="scroll-cue" href="#philosophy">SCROLL <span aria-hidden="true">↓</span></a>
+    <section class="rd-scrub" id="home" aria-labelledby="hero-title" data-clip="assets/hero-scrub.mp4" data-clip-m="assets/hero-scrub-m.mp4" data-poster="assets/hero-poster.jpg" data-poster-m="assets/hero-poster-m.jpg" data-scroll="3">
+      <div class="rd-scrub__band" data-a="0" data-b="0.45">
+        <span class="rd-scrub__kicker">NORIBOX · ARCADE AT HOME</span>
+        <h1 id="hero-title">세대를 잇는<br>즐거움.</h1>
+        <p>오락실의 추억을<br>오늘의 가족과 함께.</p>
+      </div>
+      <div class="rd-scrub__band" data-a="0.5" data-b="1">
+        <h2>공간에 맞는<br>한 대를 고르세요.</h2>
+        <p>누구나 전원을 켜고 바로 즐길 수 있는 노리박스 오락실게임기.</p>
+        <a class="rd-scrub__btn" href="products.html">제품 보기</a>
+      </div>
     </section>
     <section class="statement section-space" id="philosophy" aria-labelledby="statement-title">
       <div class="section-label">01 · BRAND</div>
@@ -58,5 +66,7 @@
   </main>
   <footer class="site-footer"><a class="brand" href="#home" aria-label="노리박스 홈"><img class="brand-logo" src="assets/images/noribox-logo.png" alt="노리박스"></a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><nav class="footer-links" aria-label="연락처와 SNS"><a href="mailto:noribox@kakao.com" target="_blank" rel="noopener">noribox@kakao.com</a><a href="http://pf.kakao.com/_yxeGFC/chat" target="_blank" rel="noopener">카카오톡</a><a href="https://www.instagram.com/noribox58/" target="_blank" rel="noopener">인스타그램</a><a href="https://cafe.naver.com/noribox" target="_blank" rel="noopener">네이버카페</a><a href="https://www.youtube.com/@noribox" target="_blank" rel="noopener">유튜브</a></nav><div class="footer-bottom"><span>© <span data-year></span> NORIBOX</span><a href="#home">맨 위로 ↑</a></div></footer>
   <script src="script.js"></script>
+  <script src="assets/scrub.js" defer></script>
+  <script src="assets/cart.js" defer></script>
 </body>
 </html>

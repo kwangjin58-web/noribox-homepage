@@ -2,3 +2,4 @@
 Thumbs.db
 output/
 .playwright-cli/
+assets/raw*.mp4

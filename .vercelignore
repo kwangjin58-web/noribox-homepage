@@ -1,0 +1,3 @@
+assets/raw*.mp4
+output/
+.playwright-cli/

@@ -2,7 +2,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
-const site = 'https://noribox-homepage.vercel.app';
+const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(root, 'story/posts.json'), 'utf8'));
 const baseFiles = ['index.html', 'about.html', 'products.html', 'contact.html', 'story/index.html'];
 const postFiles = posts.map((post) => `story/${post.url}`);

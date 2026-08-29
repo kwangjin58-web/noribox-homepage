@@ -22,7 +22,12 @@ if (menuButton && nav) {
   nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 }
 
-const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
+const updateHeader = () => {
+  if (!header) return;
+  const scrubHero = document.querySelector('.rd-scrub');
+  const isOverScrub = scrubHero && scrubHero.getBoundingClientRect().bottom > header.offsetHeight;
+  header.classList.toggle('is-scrolled', isOverScrub ? false : window.scrollY > 24);
+};
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -56,6 +61,13 @@ const makeElement = (tag, className, text) => {
   return element;
 };
 
+const configureCartButton = (button, product) => {
+  button.setAttribute('data-cart-add', '');
+  button.setAttribute('data-name', product.name);
+  button.setAttribute('data-price', String(product.price));
+  button.setAttribute('data-url', product.url);
+};
+
 const createHomeProduct = (product, index) => {
   const card = makeElement('article', 'product-card reveal');
   const figure = makeElement('figure');
@@ -70,8 +82,9 @@ const createHomeProduct = (product, index) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 구매하기`);
-  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 장바구니에 담기`);
+  configureCartButton(buyLink, product);
+  buyLink.append(makeElement('span', '', '담기'), makeElement('span', '', '+'));
   const row = makeElement('div', 'product-card-row');
   row.append(makeElement('strong', 'product-price', `${priceFormatter.format(product.price)}원`), buyLink);
   meta.append(
@@ -97,8 +110,9 @@ const createFeaturedProduct = (product) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 구매하기`);
-  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 장바구니에 담기`);
+  configureCartButton(buyLink, product);
+  buyLink.append(makeElement('span', '', '담기'), makeElement('span', '', '+'));
   body.append(
     makeElement('span', 'featured-product-label', 'NORIBOX PICK'),
     makeElement('h3', '', product.name),
@@ -126,8 +140,9 @@ const createCatalogProduct = (product, index) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 구매하기`);
-  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 장바구니에 담기`);
+  configureCartButton(buyLink, product);
+  buyLink.append(makeElement('span', '', '담기'), makeElement('span', '', '+'));
   row.append(makeElement('strong', 'catalog-card-price', `${priceFormatter.format(product.price)}원`), buyLink);
   body.append(makeElement('span', 'catalog-card-index', `PRODUCT · ${String(index + 1).padStart(2, '0')}`), title, row);
   card.append(figure, body);

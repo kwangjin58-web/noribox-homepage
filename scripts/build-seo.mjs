@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const storyDir = path.join(root, 'story');
-const site = 'https://noribox-homepage.vercel.app';
+const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(storyDir, 'posts.json'), 'utf8'));
 const esc = (value = '') => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const xml = esc;

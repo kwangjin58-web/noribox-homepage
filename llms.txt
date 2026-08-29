@@ -8,17 +8,17 @@
 
 ## 페이지 안내
 
-- [홈](https://noribox-homepage.vercel.app/): 브랜드와 대표 제품
-- [브랜드소개](https://noribox-homepage.vercel.app/about.html): 시작 이야기와 제품 원칙
-- [제품](https://noribox-homepage.vercel.app/products.html): 현재 제품 목록과 구매 링크
-- [연락하기](https://noribox-homepage.vercel.app/contact.html): 이메일과 공식 SNS
-- [이야기](https://noribox-homepage.vercel.app/story/): 오락실게임기 사용·선택 가이드
+- [홈](https://noribox.org/): 브랜드와 대표 제품
+- [브랜드소개](https://noribox.org/about.html): 시작 이야기와 제품 원칙
+- [제품](https://noribox.org/products.html): 현재 제품 목록과 구매 링크
+- [연락하기](https://noribox.org/contact.html): 이메일과 공식 SNS
+- [이야기](https://noribox.org/story/): 오락실게임기 사용·선택 가이드
 
 ## 이야기(블로그)
 
-- [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox-homepage.vercel.app/story/home-arcade-more-fun.html): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
-- [아이와 함께하기 좋은 오락실 게임 10가지는 무엇인가요?](https://noribox-homepage.vercel.app/story/arcade-games-with-kids.html): 부모와 아이가 규칙을 나누고 함께 즐기기 좋은 고전 오락실 게임 열 가지를 골랐습니다.
-- [노리박스는 다른 가정용 오락기와 무엇이 다른가요?](https://noribox-homepage.vercel.app/story/why-noribox.html): 게임 수보다 실제 사용 경험을 먼저 보는 노리박스의 제품 선택 기준과 만드는 원칙을 소개합니다.
-- [집에서 오락실 느낌을 살리려면 무엇을 확인해야 하나요?](https://noribox-homepage.vercel.app/story/home-arcade-buying-guide.html): 집에서 오락실게임기를 고를 때 게임 실행, 조작, 설치 공간을 확인하는 기준을 정리합니다.
-- [노리박스는 왜 오락실게임기를 만들기 시작했나요?](https://noribox-homepage.vercel.app/story/why-started-noribox.html): 집에서도 오락실의 느낌을 편하게 즐기고 싶었던 경험에서 노리박스가 시작된 과정을 전합니다.
-- [가정용 오락기를 구매한 뒤 어떤 지원이 필요한가요?](https://noribox-homepage.vercel.app/story/home-arcade-after-purchase.html): 가정용 오락기를 사용하며 생길 수 있는 문의와 구매 전에 확인할 지원 기준을 정리합니다.
+- [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox.org/story/home-arcade-more-fun.html): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
+- [아이와 함께하기 좋은 오락실 게임 10가지는 무엇인가요?](https://noribox.org/story/arcade-games-with-kids.html): 부모와 아이가 규칙을 나누고 함께 즐기기 좋은 고전 오락실 게임 열 가지를 골랐습니다.
+- [노리박스는 다른 가정용 오락기와 무엇이 다른가요?](https://noribox.org/story/why-noribox.html): 게임 수보다 실제 사용 경험을 먼저 보는 노리박스의 제품 선택 기준과 만드는 원칙을 소개합니다.
+- [집에서 오락실 느낌을 살리려면 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-buying-guide.html): 집에서 오락실게임기를 고를 때 게임 실행, 조작, 설치 공간을 확인하는 기준을 정리합니다.
+- [노리박스는 왜 오락실게임기를 만들기 시작했나요?](https://noribox.org/story/why-started-noribox.html): 집에서도 오락실의 느낌을 편하게 즐기고 싶었던 경험에서 노리박스가 시작된 과정을 전합니다.
+- [가정용 오락기를 구매한 뒤 어떤 지원이 필요한가요?](https://noribox.org/story/home-arcade-after-purchase.html): 가정용 오락기를 사용하며 생길 수 있는 문의와 구매 전에 확인할 지원 기준을 정리합니다.

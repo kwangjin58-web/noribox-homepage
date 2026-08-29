@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /story/admin.html
 
-Sitemap: https://noribox-homepage.vercel.app/sitemap.xml
+Sitemap: https://noribox.org/sitemap.xml
