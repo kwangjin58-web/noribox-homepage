@@ -16,6 +16,7 @@
 
 ## 이야기(블로그)
 
+- [집에서 오락실 게임기를 하려면 무엇이 필요한가요?](https://noribox.org/story/home-arcade-getting-started.html): 집에서 오락실 게임기를 시작할 때는 설치할 자리, 화면 연결 방식, 원하는 게임과 조작 환경을 먼저 확인하면 됩니다.
 - [가정용 오락기에는 어떤 게임이 들어 있나요?](https://noribox.org/story/home-arcade-game-list.html): 가정용 오락기 구매 전 게임 수록 목록과 원하는 게임의 포함 여부를 확인하는 기준을 정리합니다.
 - [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox.org/story/home-arcade-more-fun.html): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
 - [아이와 함께하기 좋은 오락실 게임 10가지는 무엇인가요?](https://noribox.org/story/arcade-games-with-kids.html): 부모와 아이가 규칙을 나누고 함께 즐기기 좋은 고전 오락실 게임 열 가지를 골랐습니다.
