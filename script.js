@@ -173,7 +173,7 @@ if (homeProducts || featuredProduct || catalogProducts) {
       if (homeProducts && featuredProduct) {
         const featured = data.products.find((product) => product.name === '노리박스 신형HX 32+ 강화유리 아크릴튜닝 스탠드형 오락실게임기') || data.products[0];
         const featuredCard = createFeaturedProduct(featured);
-        const cards = data.products.filter((product) => product !== featured).slice(0, 5).map(createHomeProduct);
+        const cards = data.products.filter((product) => product !== featured).slice(0, 9).map(createHomeProduct);
         featuredProduct.replaceChildren(featuredCard);
         homeProducts.replaceChildren(...cards);
         activateReveal([featuredCard, ...cards]);
