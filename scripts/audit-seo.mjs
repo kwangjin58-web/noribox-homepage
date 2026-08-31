@@ -5,6 +5,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(root, 'story/posts.json'), 'utf8'));
 const baseFiles = ['index.html', 'about.html', 'products.html', 'contact.html', 'story/index.html'];
+const publicPostUrl = (post) => String(post.url || '').replace(/\.html$/, '');
 const postFiles = posts.map((post) => `story/${post.url}`);
 const publicFiles = [...baseFiles, ...postFiles];
 const htmlByFile = new Map(await Promise.all(publicFiles.map(async (file) => [file, await readFile(path.join(root, file), 'utf8')])));
@@ -28,7 +29,7 @@ for (const file of publicFiles) {
 }
 add(6, ldOk, 'JSON-LD 파싱 및 요구 유형 확인');
 const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
-add(7, publicFiles.every((file) => sitemap.includes(file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : `${site}/${file}`)) && !/admin\.html|\?id=/.test(sitemap), '공개 페이지 포함, admin·동적 주소 제외');
+add(7, publicFiles.every((file) => sitemap.includes(file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : file.startsWith('story/') ? `${site}/${file.replace(/\.html$/, '')}` : `${site}/${file}`)) && !/admin\.html|\?id=/.test(sitemap), '공개 페이지 포함, admin·동적 주소 제외');
 const robots = await readFile(path.join(root, 'robots.txt'), 'utf8');
 add(8, robots.includes('Disallow: /story/admin.html') && robots.includes(`Sitemap: ${site}/sitemap.xml`) && !/GPTBot|ClaudeBot|PerplexityBot/.test(robots), 'admin만 차단하고 sitemap 안내');
 const llms = await readFile(path.join(root, 'llms.txt'), 'utf8');
@@ -42,7 +43,11 @@ for (const [file, html] of htmlByFile) {
       const clean = href.split(/[?#]/)[0];
       if (clean) {
         const target = path.resolve(path.dirname(path.join(root, file)), clean.endsWith('/') ? `${clean}index.html` : clean);
-        try { linksOk &&= (await stat(target)).isFile(); } catch { linksOk = false; }
+        try { linksOk &&= (await stat(target)).isFile(); }
+        catch {
+          try { linksOk &&= path.extname(clean) ? false : (await stat(`${target}.html`)).isFile(); }
+          catch { linksOk = false; }
+        }
       }
     }
   }
