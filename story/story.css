@@ -34,6 +34,9 @@
 .post-body li { margin-bottom: .55em; }
 .post-body li::marker { color: var(--cobalt); }
 .post-body a { color: var(--cobalt); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+.post-image { margin: 2.4em 0 2.8em; }
+.post-image img { display: block; width: 100%; height: auto; border-radius: 2px; }
+.post-image figcaption { margin-top: 10px; color: rgba(46,46,46,.62); font-size: 13px; line-height: 1.6; }
 .sources { margin-top: 70px; padding-top: 36px; border-top: 1px solid rgba(46,46,46,.16); }
 .sources h2 { margin-bottom: 20px; font-size: 24px; font-weight: 400; }
 .sources ul { margin: 0; padding-left: 1.25em; }

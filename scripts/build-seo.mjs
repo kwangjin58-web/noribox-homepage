@@ -22,12 +22,16 @@ const inline = (value = '') => {
   }
   return out + esc(value.slice(last));
 };
-const bodyHtml = (body = '') => String(body).replace(/\r\n/g, '\n').split(/\n\s*\n/).map((block) => {
+const bodyHtml = (body = '', images = []) => String(body).replace(/\r\n/g, '\n').split(/\n\s*\n/).map((block) => {
   const value = block.trim();
   if (!value) return '';
   const lines = value.split('\n');
   if (lines.every((line) => /^- /.test(line.trim()))) return `<ul>${lines.map((line) => `<li>${inline(line.trim().slice(2))}</li>`).join('')}</ul>`;
-  if (/^## /.test(value)) return `<h2>${esc(value.slice(3).trim())}</h2>`;
+  if (/^## /.test(value)) {
+    const heading = value.slice(3).trim();
+    const media = images.filter((image) => image.beforeHeading === heading).map((image) => `<figure class="post-image"><img src="${esc(image.src)}" alt="${esc(image.alt)}"><figcaption>${esc(image.caption)}</figcaption></figure>`).join('');
+    return `${media}<h2>${esc(heading)}</h2>`;
+  }
   return `<p>${inline(value)}</p>`;
 }).join('\n');
 const formatDate = (date) => {
@@ -77,7 +81,7 @@ for (let index = 0; index < posts.length; index += 1) {
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
   <header class="site-header" data-header><a class="brand" href="../index.html" aria-label="노리박스 홈"><img class="brand-logo" src="../assets/images/noribox-logo.png" alt="노리박스"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html#home">홈</a><a href="../about.html">브랜드소개</a><a href="../products.html">제품</a><a href="./" aria-current="page">이야기</a><a href="../contact.html">연락하기</a></nav></header>
-  <div class="post-wrap"><a class="back-link" href="./">← 이야기 목록</a><main id="main"><article class="post-article reveal is-visible"><header class="post-head"><time datetime="${esc(post.date)}">${formatDate(post.date)}</time><h1>${esc(post.title)}</h1><p class="post-author">글 · ${esc(post.author)}</p><div class="post-tags">${post.tags.map((tag) => `<span class="post-tag">${esc(tag)}</span>`).join('')}</div></header><div class="post-body">${bodyHtml(post.body)}</div><section class="faq"><h2>자주 묻는 질문</h2>${faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join('')}</section><section class="sources"><h2>출처</h2><ul>${sources.map((item) => `<li><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a></li>`).join('')}</ul></section><nav class="post-navigation" aria-label="이전 글과 다음 글">${navCell(previous, '이전 글', 'prev')}${navCell(next, '다음 글', 'next')}</nav></article></main></div>
+  <div class="post-wrap"><a class="back-link" href="./">← 이야기 목록</a><main id="main"><article class="post-article reveal is-visible"><header class="post-head"><time datetime="${esc(post.date)}">${formatDate(post.date)}</time><h1>${esc(post.title)}</h1><p class="post-author">글 · ${esc(post.author)}</p><div class="post-tags">${post.tags.map((tag) => `<span class="post-tag">${esc(tag)}</span>`).join('')}</div></header><div class="post-body">${bodyHtml(post.body, post.images || [])}</div><section class="faq"><h2>자주 묻는 질문</h2>${faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join('')}</section><section class="sources"><h2>출처</h2><ul>${sources.map((item) => `<li><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a></li>`).join('')}</ul></section><nav class="post-navigation" aria-label="이전 글과 다음 글">${navCell(previous, '이전 글', 'prev')}${navCell(next, '다음 글', 'next')}</nav></article></main></div>
   <footer class="site-footer"><a class="brand" href="../index.html" aria-label="노리박스 홈"><img class="brand-logo" src="../assets/images/noribox-logo.png" alt="노리박스"></a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><nav class="footer-links" aria-label="연락처와 SNS"><a href="mailto:noribox@kakao.com" target="_blank" rel="noopener">noribox@kakao.com</a><a href="http://pf.kakao.com/_yxeGFC/chat" target="_blank" rel="noopener">카카오톡</a><a href="https://www.instagram.com/noribox58/" target="_blank" rel="noopener">인스타그램</a><a href="https://cafe.naver.com/noribox" target="_blank" rel="noopener">네이버카페</a><a href="https://www.youtube.com/@noribox" target="_blank" rel="noopener">유튜브</a></nav><div class="footer-bottom"><span>© <span data-year></span> NORIBOX</span><a href="#main">맨 위로 ↑</a></div></footer>
   <script src="../script.js"></script>
 </body>
