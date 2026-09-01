@@ -16,6 +16,7 @@
 
 ## 이야기(블로그)
 
+- [스탠드형과 좌식형 오락기는 무엇이 다른가요?](https://noribox.org/story/stand-vs-seated-arcade.html): 스탠드형과 좌식형 오락기는 주로 즐기는 자세와 필요한 공간이 다릅니다. 집에서 누가 어떻게 사용할지 먼저 정하면 선택 기준이 선명해집니다.
 - [TV 연결형 오락기는 어떻게 설치하나요?](https://noribox.org/story/tv-connected-arcade-installation.html): TV 연결형 오락기는 제품 안내에 맞는 연결 단자와 설치 위치를 먼저 확인하고, 전원을 켠 뒤 화면과 조작을 순서대로 점검하면 됩니다.
 - [집에서 오락실 게임기를 하려면 무엇이 필요한가요?](https://noribox.org/story/home-arcade-getting-started.html): 집에서 오락실 게임기를 시작할 때는 설치할 자리, 화면 연결 방식, 원하는 게임과 조작 환경을 먼저 확인하면 됩니다.
 - [가정용 오락기에는 어떤 게임이 들어 있나요?](https://noribox.org/story/home-arcade-game-list.html): 가정용 오락기 구매 전 게임 수록 목록과 원하는 게임의 포함 여부를 확인하는 기준을 정리합니다.
