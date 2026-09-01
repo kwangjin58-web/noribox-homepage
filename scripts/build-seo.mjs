@@ -46,7 +46,9 @@ for (let index = 0; index < posts.length; index += 1) {
   const canonical = `${site}/story/${post.url}`;
   const faq = post.faq || [];
   const sources = post.sources || [];
-  const articleLd = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, dateModified: post.updated || post.date, author: { '@type': 'Person', name: post.author }, mainEntityOfPage: canonical, keywords: post.tags.join(', ') };
+  const images = post.images || [];
+  const ogImage = images[0] ? new URL(images[0].src, `${site}/story/`).href : null;
+  const articleLd = { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, description: post.description, datePublished: post.date, dateModified: post.updated || post.date, author: { '@type': 'Person', name: post.author }, mainEntityOfPage: canonical, keywords: post.tags.join(', '), ...(ogImage ? { image: ogImage } : {}) };
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.q, acceptedAnswer: { '@type': 'Answer', text: item.a } })) };
   const breadcrumbLd = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: '홈', item: `${site}/` },
@@ -69,7 +71,8 @@ for (let index = 0; index < posts.length; index += 1) {
   <meta property="og:type" content="article">
   <meta property="og:title" content="${esc(post.title)}">
   <meta property="og:description" content="${esc(post.description)}">
-  <meta property="og:url" content="${canonical}">
+  <meta property="og:url" content="${canonical}">${ogImage ? `\r
+  <meta property="og:image" content="${esc(ogImage)}">` : ''}
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6FED'/%3E%3Cpath d='M17 43V21h8l14 14V21h8v22h-8L25 29v14z' fill='white'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
