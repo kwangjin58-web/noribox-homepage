@@ -1,4 +1,27 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/o64ek3sp",
+      "destination": "https://noribox.org/products",
+      "statusCode": 301
+    },
+    {
+      "source": "/g898fzde",
+      "destination": "https://noribox.org/story/",
+      "statusCode": 301
+    },
+    {
+      "source": "/board/:path*",
+      "destination": "https://noribox.org/story/",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.noribox.org" }],
+      "destination": "https://noribox.org/:path*",
+      "statusCode": 301
+    }
+  ]
 }
