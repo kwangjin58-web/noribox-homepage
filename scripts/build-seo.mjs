@@ -5,6 +5,9 @@ const root = path.resolve(import.meta.dirname, '..');
 const storyDir = path.join(root, 'story');
 const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(storyDir, 'posts.json'), 'utf8'));
+const targetUrl = process.argv.find((argument) => argument.startsWith('--post='))?.slice('--post='.length);
+if (!targetUrl) throw new Error('새 글만 생성하려면 --post=<slug>.html 인수를 지정하세요.');
+if (!posts.some((post) => post.url === targetUrl)) throw new Error(`posts.json에서 ${targetUrl} 글을 찾을 수 없습니다.`);
 const esc = (value = '') => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const xml = esc;
 const jsonLd = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
@@ -43,6 +46,7 @@ const href = (post) => post.url || `post.html?id=${encodeURIComponent(post.id)}`
 await mkdir(path.join(root, 'scripts'), { recursive: true });
 for (let index = 0; index < posts.length; index += 1) {
   const post = posts[index];
+  if (post.url !== targetUrl) continue;
   const canonical = `${site}/story/${post.url}`;
   const faq = post.faq || [];
   const sources = post.sources || [];
@@ -102,4 +106,3 @@ const sitemapUrls = [
 await writeFile(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((item) => `  <url><loc>${xml(item.url)}</loc><lastmod>${item.date}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 await writeFile(path.join(root, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>노리박스 이야기</title><link>${site}/story/</link><description>오락실게임기와 노리박스의 제품·사용 이야기</description><language>ko</language>${sorted.slice(0, 20).map((post) => `<item><title>${xml(post.title)}</title><link>${site}/story/${post.url}</link><description>${xml(post.description)}</description><pubDate>${new Date(`${post.date}T00:00:00+09:00`).toUTCString()}</pubDate><guid isPermaLink="true">${site}/story/${post.url}</guid></item>`).join('')}</channel></rss>\n`);
 await writeFile(path.join(root, 'llms.txt'), `# 노리박스\n\n노리박스는 즐거웠던 오락실의 추억과 새로운 가족의 추억을 잇는 브랜드입니다.\n\n## 파는 것\n\n가정용·업소용 오락실게임기와 관련 제품을 소개합니다.\n\n## 페이지 안내\n\n- [홈](${site}/): 브랜드와 대표 제품\n- [브랜드소개](${site}/about.html): 시작 이야기와 제품 원칙\n- [제품](${site}/products.html): 현재 제품 목록과 구매 링크\n- [연락하기](${site}/contact.html): 이메일과 공식 SNS\n- [이야기](${site}/story/): 오락실게임기 사용·선택 가이드\n\n## 이야기(블로그)\n\n${sorted.slice(0, 30).map((post) => `- [${post.title}](${site}/story/${post.url}): ${post.summary}`).join('\n')}\n`);
-await writeFile(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /story/admin.html\n\nSitemap: ${site}/sitemap.xml\n`);
