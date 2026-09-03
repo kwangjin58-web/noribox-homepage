@@ -76,8 +76,8 @@ const createHomeProduct = (product, index) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 자세히 보기`);
-  buyLink.append(makeElement('span', '', '자세히보기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 구매하기`);
+  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
   const row = makeElement('div', 'product-card-row');
   row.append(makeElement('strong', 'product-price', `${priceFormatter.format(product.price)}원`), buyLink);
   meta.append(
@@ -103,8 +103,8 @@ const createFeaturedProduct = (product) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 자세히 보기`);
-  buyLink.append(makeElement('span', '', '자세히보기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 구매하기`);
+  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
   body.append(
     makeElement('span', 'featured-product-label', 'NORIBOX PICK'),
     makeElement('h3', '', product.name),
@@ -132,8 +132,8 @@ const createCatalogProduct = (product, index) => {
   buyLink.href = product.url;
   buyLink.target = '_blank';
   buyLink.rel = 'noopener';
-  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 자세히 보기`);
-  buyLink.append(makeElement('span', '', '자세히보기'), makeElement('span', '', '↗'));
+  buyLink.setAttribute('aria-label', `${product.name} 스마트스토어에서 구매하기`);
+  buyLink.append(makeElement('span', '', '구매하기'), makeElement('span', '', '↗'));
   row.append(makeElement('strong', 'catalog-card-price', `${priceFormatter.format(product.price)}원`), buyLink);
   body.append(makeElement('span', 'catalog-card-index', `PRODUCT · ${String(index + 1).padStart(2, '0')}`), title, row);
   card.append(figure, body);
