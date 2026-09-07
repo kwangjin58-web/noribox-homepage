@@ -30,6 +30,16 @@
       <div class="story-hero-copy reveal"><h1 id="story-title">만드는 마음을<br>기록합니다.</h1><p>제품 뒤에 있는 사람들, 오래 고민한 과정, 함께 만든 추억을 천천히 쌓아갑니다.</p></div>
     </section>
     <section class="story-index section-space" aria-label="이야기 목록">
+      <div class="story-search reveal">
+        <form class="story-search-form" role="search" novalidate>
+          <label for="story-search-input">이야기 검색</label>
+          <div class="story-search-field">
+            <input id="story-search-input" type="search" inputmode="search" autocomplete="off" placeholder="궁금한 이야기를 검색해 보세요" aria-describedby="story-search-status">
+            <button type="button" class="story-search-clear" aria-label="검색어 지우기" hidden>지우기</button>
+          </div>
+        </form>
+        <p class="story-search-status" id="story-search-status" aria-live="polite">이야기를 불러오고 있습니다.</p>
+      </div>
       <ol class="blog-list" id="list" aria-live="polite"><li class="blog-loading">이야기를 불러오고 있습니다.</li></ol>
     </section>
   </main>
@@ -39,11 +49,24 @@
   <script>
   (function(){
     var list = document.getElementById('list');
+    var form = document.querySelector('.story-search-form');
+    var input = document.getElementById('story-search-input');
+    var clearButton = document.querySelector('.story-search-clear');
+    var status = document.getElementById('story-search-status');
+    var allPosts = [];
     function el(tag, cls, text){ var n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; }
     function fmtDate(s){ var d=new Date(s+'T00:00:00'); if(isNaN(d))return s||''; return d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'.'; }
-    function render(posts){
-      if(!Array.isArray(posts)||posts.length===0){ var empty=el('li','blog-empty','아직 올라온 글이 없습니다.'); list.replaceChildren(empty); return; }
-      posts=posts.slice().sort(function(a,b){ return String(b.date||'').localeCompare(String(a.date||'')); });
+    function normalize(value){ return String(value||'').normalize('NFKC').toLocaleLowerCase('ko-KR').replace(/\s+/g,' ').trim(); }
+    function searchableText(post){
+      return normalize([post.title,post.summary,Array.isArray(post.tags)?post.tags.join(' '):'',post.body].join(' '));
+    }
+    function render(posts, query){
+      if(!Array.isArray(posts)||posts.length===0){
+        var message=query?'검색 결과가 없습니다. 다른 검색어를 입력해 보세요.':'아직 올라온 글이 없습니다.';
+        list.replaceChildren(el('li','blog-empty',message));
+        status.textContent=query?'검색 결과 0개':'전체 이야기 0개';
+        return;
+      }
       var cards=posts.map(function(p,index){
         var li=el('li','blog-card reveal');
         var a=el('a'); a.href=p.url?String(p.url):'post.html?id='+encodeURIComponent(p.id||'');
@@ -56,10 +79,31 @@
         a.append(number,copy,arrow); li.appendChild(a); return li;
       });
       list.replaceChildren.apply(list,cards);
+      status.textContent=query?'‘'+query+'’ 검색 결과 '+posts.length+'개':'전체 이야기 '+posts.length+'개';
       if(window.activateReveal)window.activateReveal(cards);
       else cards.forEach(function(card){card.classList.add('is-visible');});
     }
-    fetch('posts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(render).catch(function(){list.replaceChildren(el('li','blog-empty','글 목록을 불러오지 못했습니다.'));});
+    function applySearch(){
+      var query=input.value.trim();
+      var normalizedQuery=normalize(query);
+      var terms=normalizedQuery.split(' ').filter(Boolean);
+      var filtered=terms.length?allPosts.filter(function(post){
+        var haystack=searchableText(post);
+        return terms.every(function(term){return haystack.indexOf(term)!==-1;});
+      }):allPosts;
+      clearButton.hidden=!query;
+      render(filtered,query);
+    }
+    form.addEventListener('submit',function(event){event.preventDefault();applySearch();});
+    input.addEventListener('input',applySearch);
+    clearButton.addEventListener('click',function(){input.value='';applySearch();input.focus();});
+    fetch('posts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(posts){
+      allPosts=Array.isArray(posts)?posts.slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));}):[];
+      applySearch();
+    }).catch(function(){
+      status.textContent='이야기를 불러오지 못했습니다.';
+      list.replaceChildren(el('li','blog-empty','글 목록을 불러오지 못했습니다.'));
+    });
   })();
   </script>
   <script src="../script.js"></script>

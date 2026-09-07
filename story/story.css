@@ -7,6 +7,15 @@
 .story-hero-copy > p { max-width: 40ch; margin-top: 42px; color: rgba(46,46,46,.7); }
 .story-admin-link { margin-top: 46px; display: inline-flex; gap: 42px; padding-bottom: 5px; border-bottom: 1px solid currentColor; font-size: 12px; font-weight: 500; }
 .story-index { width: var(--page); margin: 0 auto; }
+.story-search { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: end; margin-bottom: 64px; }
+.story-search-form label { display: block; margin-bottom: 16px; font-size: 12px; font-weight: 600; letter-spacing: .12em; }
+.story-search-field { position: relative; max-width: 720px; }
+.story-search-field input { width: 100%; height: 64px; padding: 0 92px 0 0; border: 0; border-bottom: 1px solid var(--charcoal); border-radius: 0; outline: 0; background: transparent; color: var(--charcoal); font: inherit; font-size: clamp(20px, 2.4vw, 30px); font-weight: 300; letter-spacing: -.025em; }
+.story-search-field input::placeholder { color: rgba(46,46,46,.42); opacity: 1; }
+.story-search-field input::-webkit-search-cancel-button { appearance: none; }
+.story-search-field input:focus-visible { border-bottom-color: var(--cobalt); box-shadow: 0 2px 0 var(--cobalt); }
+.story-search-clear { position: absolute; right: 0; top: 50%; min-width: 58px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--cobalt); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.story-search-status { margin: 0 0 17px; color: rgba(46,46,46,.62); font-size: 12px; white-space: nowrap; }
 .blog-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--charcoal); }
 .blog-card { border-bottom: 1px solid rgba(46,46,46,.18); }
 .blog-card > a { min-height: 250px; padding: 42px 0; display: grid; grid-template-columns: 90px 1fr 44px; gap: 5vw; align-items: start; }
@@ -66,6 +75,9 @@
 @media (max-width: 600px) {
   .story-hero { padding-top: 150px; }
   .story-hero-copy h1 { font-size: 56px; }
+  .story-search { grid-template-columns: 1fr; gap: 14px; margin-bottom: 42px; }
+  .story-search-field input { height: 58px; padding-right: 64px; font-size: 20px; }
+  .story-search-status { margin: 0; }
   .blog-card > a { min-height: 0; padding: 34px 0; grid-template-columns: 38px 1fr 24px; gap: 14px; }
   .blog-card h2 { font-size: 29px; }
   .blog-summary { font-size: 14px; }
