@@ -11,11 +11,12 @@ const htmlByFile = new Map(await Promise.all(publicFiles.map(async (file) => [fi
 const results = [];
 const add = (number, pass, detail) => results.push({ number, status: pass ? '통과' : '실패', detail });
 const attr = (html, pattern) => html.match(pattern)?.[1]?.trim() || '';
+const publicUrl = (file) => file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : `${site}/${file.replace(/\.html$/, '')}`;
 
 const titles = publicFiles.map((file) => attr(htmlByFile.get(file), /<title>([^<]+)<\/title>/i));
 const descriptions = publicFiles.map((file) => attr(htmlByFile.get(file), /<meta name="description" content="([^"]+)"/i));
 add(1, titles.every((title) => title && title.length <= 60) && new Set(titles).size === titles.length && descriptions.every(Boolean), `공개 HTML ${publicFiles.length}개 title 고유·60자 이하·description 확인`);
-add(2, publicFiles.every((file) => attr(htmlByFile.get(file), /<link rel="canonical" href="([^"]+)"/i).startsWith(site)), '공개 HTML canonical 도메인 확인');
+add(2, publicFiles.every((file) => attr(htmlByFile.get(file), /<link rel="canonical" href="([^"]+)"/i) === publicUrl(file)), '공개 HTML canonical이 HTTPS·대표 clean URL과 일치');
 add(3, publicFiles.every((file) => ['og:title','og:description','og:url'].every((key) => new RegExp(`<meta property="${key}" content="[^"]+"`, 'i').test(htmlByFile.get(file)))), '공개 HTML OG 필수값 확인');
 add(4, publicFiles.every((file) => (htmlByFile.get(file).match(/<h1\b/gi) || []).length === 1), '공개 HTML h1 각 1개 확인');
 add(5, publicFiles.every((file) => [...htmlByFile.get(file).matchAll(/<img\b[^>]*>/gi)].every((match) => /\balt="[^"]*"/i.test(match[0]))), '이미지 alt 누락 없음');
@@ -28,7 +29,7 @@ for (const file of publicFiles) {
 }
 add(6, ldOk, 'JSON-LD 파싱 및 요구 유형 확인');
 const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
-add(7, publicFiles.every((file) => sitemap.includes(file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : `${site}/${file}`)) && !/admin\.html|\?id=/.test(sitemap), '공개 페이지 포함, admin·동적 주소 제외');
+add(7, publicFiles.every((file) => sitemap.includes(publicUrl(file))) && !/admin\.html|\?id=/.test(sitemap), '공개 대표 URL 포함, admin·동적 주소 제외');
 const robots = await readFile(path.join(root, 'robots.txt'), 'utf8');
 add(8, robots.includes('Disallow: /story/admin.html') && robots.includes(`Sitemap: ${site}/sitemap.xml`) && !/GPTBot|ClaudeBot|PerplexityBot/.test(robots), 'admin만 차단하고 sitemap 안내');
 const llms = await readFile(path.join(root, 'llms.txt'), 'utf8');
@@ -42,7 +43,11 @@ for (const [file, html] of htmlByFile) {
       const clean = href.split(/[?#]/)[0];
       if (clean) {
         const target = path.resolve(path.dirname(path.join(root, file)), clean.endsWith('/') ? `${clean}index.html` : clean);
-        try { linksOk &&= (await stat(target)).isFile(); } catch { linksOk = false; }
+        try { linksOk &&= (await stat(target)).isFile(); }
+        catch {
+          try { linksOk &&= (await stat(`${target}.html`)).isFile(); }
+          catch { linksOk = false; }
+        }
       }
     }
   }
