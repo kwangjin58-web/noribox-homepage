@@ -9,24 +9,24 @@
 ## 페이지 안내
 
 - [홈](https://noribox.org/): 브랜드와 대표 제품
-- [브랜드소개](https://noribox.org/about.html): 시작 이야기와 제품 원칙
-- [제품](https://noribox.org/products.html): 현재 제품 목록과 구매 링크
-- [연락하기](https://noribox.org/contact.html): 이메일과 공식 SNS
+- [브랜드소개](https://noribox.org/about): 시작 이야기와 제품 원칙
+- [제품](https://noribox.org/products): 현재 제품 목록과 구매 링크
+- [연락하기](https://noribox.org/contact): 이메일과 공식 SNS
 - [이야기](https://noribox.org/story/): 오락실게임기 사용·선택 가이드
 
 ## 이야기(블로그)
 
-- [아이와 함께하기 좋은 오락실 게임은 무엇인가요?](https://noribox.org/story/kids-arcade-game-guide.html): 아이와 함께할 오락실 게임은 특정 제목보다 아이의 연령과 게임의 표현, 조작 난이도, 함께할 방식을 기준으로 현재 안내를 확인해 고르는 편이 좋습니다.
-- [가정용 오락기는 두 사람이 함께 할 수 있나요?](https://noribox.org/story/home-arcade-two-player.html): 가정용 오락기를 두 사람이 함께 즐기려면 기기와 게임의 동시 이용 안내, 앉는 자리와 조작 공간을 구매 전에 함께 확인하는 편이 좋습니다.
-- [우리 집 공간에는 어떤 오락기 형태가 적당한가요?](https://noribox.org/story/home-arcade-space-guide.html): 집에 맞는 오락기 형태는 기기 크기보다 주로 즐길 자세와 주변 동선, 화면을 보는 위치를 함께 확인해 고르는 편이 좋습니다.
-- [TV 연결형 분리기통은 어떤 사람에게 잘 맞나요?](https://noribox.org/story/tv-separated-arcade-who-it-suits.html): TV 연결형 분리기통은 이미 사용하는 TV를 화면으로 활용하고, 기기와 화면을 같은 자리에 두지 않고 싶은 사람에게 검토할 만한 형태입니다.
-- [스탠드형과 좌식형 오락기는 무엇이 다른가요?](https://noribox.org/story/stand-vs-seated-arcade.html): 스탠드형과 좌식형 오락기는 주로 즐기는 자세와 필요한 공간이 다릅니다. 집에서 누가 어떻게 사용할지 먼저 정하면 선택 기준이 선명해집니다.
-- [TV 연결형 오락기는 어떻게 설치하나요?](https://noribox.org/story/tv-connected-arcade-installation.html): TV 연결형 오락기는 제품 안내에 맞는 연결 단자와 설치 위치를 먼저 확인하고, 전원을 켠 뒤 화면과 조작을 순서대로 점검하면 됩니다.
-- [집에서 오락실 게임기를 하려면 무엇이 필요한가요?](https://noribox.org/story/home-arcade-getting-started.html): 집에서 오락실 게임기를 시작할 때는 설치할 자리, 화면 연결 방식, 원하는 게임과 조작 환경을 먼저 확인하면 됩니다.
-- [가정용 오락기에는 어떤 게임이 들어 있나요?](https://noribox.org/story/home-arcade-game-list.html): 가정용 오락기 구매 전 게임 수록 목록과 원하는 게임의 포함 여부를 확인하는 기준을 정리합니다.
-- [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox.org/story/home-arcade-more-fun.html): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
-- [아이와 함께하기 좋은 오락실 게임 10가지는 무엇인가요?](https://noribox.org/story/arcade-games-with-kids.html): 부모와 아이가 규칙을 나누고 함께 즐기기 좋은 고전 오락실 게임 열 가지를 골랐습니다.
-- [노리박스는 다른 가정용 오락기와 무엇이 다른가요?](https://noribox.org/story/why-noribox.html): 게임 수보다 실제 사용 경험을 먼저 보는 노리박스의 제품 선택 기준과 만드는 원칙을 소개합니다.
-- [집에서 오락실 느낌을 살리려면 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-buying-guide.html): 집에서 오락실게임기를 고를 때 게임 실행, 조작, 설치 공간을 확인하는 기준을 정리합니다.
-- [노리박스는 왜 오락실게임기를 만들기 시작했나요?](https://noribox.org/story/why-started-noribox.html): 집에서도 오락실의 느낌을 편하게 즐기고 싶었던 경험에서 노리박스가 시작된 과정을 전합니다.
-- [가정용 오락기를 구매한 뒤 어떤 지원이 필요한가요?](https://noribox.org/story/home-arcade-after-purchase.html): 가정용 오락기를 사용하며 생길 수 있는 문의와 구매 전에 확인할 지원 기준을 정리합니다.
+- [아이와 함께하기 좋은 오락실 게임은 무엇인가요?](https://noribox.org/story/kids-arcade-game-guide): 아이와 함께할 오락실 게임은 특정 제목보다 아이의 연령과 게임의 표현, 조작 난이도, 함께할 방식을 기준으로 현재 안내를 확인해 고르는 편이 좋습니다.
+- [가정용 오락기는 두 사람이 함께 할 수 있나요?](https://noribox.org/story/home-arcade-two-player): 가정용 오락기를 두 사람이 함께 즐기려면 기기와 게임의 동시 이용 안내, 앉는 자리와 조작 공간을 구매 전에 함께 확인하는 편이 좋습니다.
+- [우리 집 공간에는 어떤 오락기 형태가 적당한가요?](https://noribox.org/story/home-arcade-space-guide): 집에 맞는 오락기 형태는 기기 크기보다 주로 즐길 자세와 주변 동선, 화면을 보는 위치를 함께 확인해 고르는 편이 좋습니다.
+- [TV 연결형 분리기통은 어떤 사람에게 잘 맞나요?](https://noribox.org/story/tv-separated-arcade-who-it-suits): TV 연결형 분리기통은 이미 사용하는 TV를 화면으로 활용하고, 기기와 화면을 같은 자리에 두지 않고 싶은 사람에게 검토할 만한 형태입니다.
+- [스탠드형과 좌식형 오락기는 무엇이 다른가요?](https://noribox.org/story/stand-vs-seated-arcade): 스탠드형과 좌식형 오락기는 주로 즐기는 자세와 필요한 공간이 다릅니다. 집에서 누가 어떻게 사용할지 먼저 정하면 선택 기준이 선명해집니다.
+- [TV 연결형 오락기는 어떻게 설치하나요?](https://noribox.org/story/tv-connected-arcade-installation): TV 연결형 오락기는 제품 안내에 맞는 연결 단자와 설치 위치를 먼저 확인하고, 전원을 켠 뒤 화면과 조작을 순서대로 점검하면 됩니다.
+- [집에서 오락실 게임기를 하려면 무엇이 필요한가요?](https://noribox.org/story/home-arcade-getting-started): 집에서 오락실 게임기를 시작할 때는 설치할 자리, 화면 연결 방식, 원하는 게임과 조작 환경을 먼저 확인하면 됩니다.
+- [가정용 오락기에는 어떤 게임이 들어 있나요?](https://noribox.org/story/home-arcade-game-list): 가정용 오락기 구매 전 게임 수록 목록과 원하는 게임의 포함 여부를 확인하는 기준을 정리합니다.
+- [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox.org/story/home-arcade-more-fun): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
+- [아이와 함께하기 좋은 오락실 게임 10가지는 무엇인가요?](https://noribox.org/story/arcade-games-with-kids): 부모와 아이가 규칙을 나누고 함께 즐기기 좋은 고전 오락실 게임 열 가지를 골랐습니다.
+- [노리박스는 다른 가정용 오락기와 무엇이 다른가요?](https://noribox.org/story/why-noribox): 게임 수보다 실제 사용 경험을 먼저 보는 노리박스의 제품 선택 기준과 만드는 원칙을 소개합니다.
+- [집에서 오락실 느낌을 살리려면 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-buying-guide): 집에서 오락실게임기를 고를 때 게임 실행, 조작, 설치 공간을 확인하는 기준을 정리합니다.
+- [노리박스는 왜 오락실게임기를 만들기 시작했나요?](https://noribox.org/story/why-started-noribox): 집에서도 오락실의 느낌을 편하게 즐기고 싶었던 경험에서 노리박스가 시작된 과정을 전합니다.
+- [가정용 오락기를 구매한 뒤 어떤 지원이 필요한가요?](https://noribox.org/story/home-arcade-after-purchase): 가정용 오락기를 사용하며 생길 수 있는 문의와 구매 전에 확인할 지원 기준을 정리합니다.
