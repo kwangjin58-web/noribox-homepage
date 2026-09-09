@@ -107,6 +107,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--cobalt); }
 .contact-form textarea { resize: vertical; }
 .contact-form .button { width: 100%; margin-top: 6px; }
+.contact-form .contact-submit { border-color: var(--cobalt); background: var(--cobalt); color: var(--white); }
 .form-note { margin-top: 12px; font-size: 11px; color: rgba(46,46,46,.6); }
 .form-note.is-success { color: var(--cobalt); }
 
