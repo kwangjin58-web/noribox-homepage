@@ -3,6 +3,21 @@ const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('.site-nav');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+const isAdminPage = window.location.pathname.replace(/\/+$/, '').endsWith('/story/admin.html');
+
+if (!isAdminPage && !document.querySelector('script[data-naver-analytics]')) {
+  window.wcs_add = window.wcs_add || {};
+  window.wcs_add.wa = '1c321ed900665e0';
+
+  const naverAnalyticsScript = document.createElement('script');
+  naverAnalyticsScript.src = '//wcs.pstatic.net/wcslog.js';
+  naverAnalyticsScript.dataset.naverAnalytics = 'true';
+  naverAnalyticsScript.onload = () => {
+    if (window.wcs) window.wcs_do();
+  };
+  document.head.appendChild(naverAnalyticsScript);
+}
+
 const closeMenu = () => {
   if (!menuButton || !nav) return;
   menuButton.setAttribute('aria-expanded', 'false');
