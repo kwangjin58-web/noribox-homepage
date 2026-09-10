@@ -144,7 +144,6 @@ async function fetchReview(listItem) {
     id,
     title,
     date: toKoreanDate(article.writeDate),
-    author: cleanText(article.writer?.nick) || '네이버 카페 회원',
     body,
     images,
     links: linksFromHtml(article.contentHtml),
@@ -231,7 +230,7 @@ function listPage(reviews, page, totalPages) {
     { '@type': 'ListItem', position: 1, name: '홈', item: `${site}/` },
     { '@type': 'ListItem', position: 2, name: '구매후기', item: `${site}/reviews/` }
   ] };
-  const rows = reviews.map((review) => `<tr><td class="review-number">${review.id}</td><td><a class="review-title" href="${pageRoot}${review.id}.html">${esc(review.title)}</a><span class="review-mobile-meta">${esc(review.author)} · ${formatDate(review.date)}</span></td><td>${esc(review.author)}</td><td><time datetime="${review.date}">${formatDate(review.date)}</time></td><td aria-label="첨부 사진 ${review.images.length}장">${review.images.length ? `📷 ${review.images.length}` : '—'}</td></tr>`).join('\n');
+  const rows = reviews.map((review) => `<tr><td class="review-number">${review.id}</td><td><a class="review-title" href="${pageRoot}${review.id}.html">${esc(review.title)}</a><span class="review-mobile-meta">${formatDate(review.date)}</span></td><td><time datetime="${review.date}">${formatDate(review.date)}</time></td><td aria-label="첨부 사진 ${review.images.length}장">${review.images.length ? `📷 ${review.images.length}` : '—'}</td></tr>`).join('\n');
   return `<!doctype html>
 <html lang="ko">
 ${head({ title, description, canonical, prefix, ld: [collectionLd, breadcrumbLd] })}
@@ -242,7 +241,7 @@ ${head({ title, description, canonical, prefix, ld: [collectionLd, breadcrumbLd]
     <header class="reviews-heading"><p class="reviews-kicker">CUSTOMER REVIEWS</p><h1>구매후기</h1><p>노리박스를 구매한 고객이 네이버 카페에 공개한 실제 사용후기입니다.</p><a href="https://cafe.naver.com/f-e/cafes/${cafeId}/menus/${menuId}" target="_blank" rel="noopener">네이버 카페 원문 게시판 ↗</a></header>
     <section class="review-board" aria-label="구매후기 글 목록">
       <div class="review-board-summary"><strong>전체 ${reviewsTotal.toLocaleString('ko-KR')}건</strong><span>${page} / ${totalPages} 페이지</span></div>
-      <div class="review-table-wrap"><table><thead><tr><th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>사진</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="review-table-wrap"><table><thead><tr><th>번호</th><th>제목</th><th>작성일</th><th>사진</th></tr></thead><tbody>${rows}</tbody></table></div>
       ${pagination(page, totalPages)}
     </section>
   </main>
@@ -260,7 +259,7 @@ function detailPage(review) {
   const images = review.images.map((image, index) => `<figure><img src="${esc(image.url)}" alt="${esc(review.title)} 구매후기 사진 ${index + 1}" loading="lazy" decoding="async" referrerpolicy="no-referrer"${image.width ? ` width="${image.width}"` : ''}${image.height ? ` height="${image.height}"` : ''}></figure>`).join('\n');
   const paragraphs = review.body.split(/\n{2,}/).map((paragraph) => `<p>${esc(paragraph).replace(/\n/g, '<br>')}</p>`).join('\n');
   const links = review.links.length ? `<section class="review-links"><h2>후기에 포함된 링크</h2><ul>${review.links.map((link) => `<li><a href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.label)}</a></li>`).join('')}</ul></section>` : '';
-  const articleLd = { '@context': 'https://schema.org', '@type': 'Article', headline: review.title, description, datePublished: review.date, dateModified: review.date, author: { '@type': 'Person', name: review.author }, publisher: { '@type': 'Organization', name: '노리박스', url: site }, mainEntityOfPage: canonical, citation: review.originalUrl, about: { '@type': 'Brand', name: '노리박스' }, ...(review.images.length ? { image: review.images.map((image) => image.url) } : {}) };
+  const articleLd = { '@context': 'https://schema.org', '@type': 'Article', headline: review.title, description, datePublished: review.date, dateModified: review.date, publisher: { '@type': 'Organization', name: '노리박스', url: site }, mainEntityOfPage: canonical, citation: review.originalUrl, about: { '@type': 'Brand', name: '노리박스' }, ...(review.images.length ? { image: review.images.map((image) => image.url) } : {}) };
   const breadcrumbLd = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: '홈', item: `${site}/` },
     { '@type': 'ListItem', position: 2, name: '구매후기', item: `${site}/reviews/` },
@@ -275,7 +274,7 @@ ${head({ title: pageTitle, description, canonical, ogType: 'article', ogImage: r
   <main id="main" class="review-detail-main">
     <a class="review-back" href="./">← 구매후기 목록</a>
     <article class="review-article">
-      <header><p class="review-source-label">네이버 카페 실제 구매후기</p><h1>${esc(review.title)}</h1><div class="review-meta"><span>${esc(review.author)}</span><time datetime="${review.date}">${formatDate(review.date)}</time><span>후기 번호 ${review.id}</span></div></header>
+      <header><p class="review-source-label">네이버 카페 실제 구매후기</p><h1>${esc(review.title)}</h1><div class="review-meta"><time datetime="${review.date}">${formatDate(review.date)}</time><span>후기 번호 ${review.id}</span></div></header>
       ${images ? `<div class="review-images">${images}</div>` : ''}
       <div class="review-content">${paragraphs || '<p>사진으로 작성된 구매후기입니다.</p>'}</div>
       ${links}
@@ -307,7 +306,7 @@ const fetched = pending.length ? await mapConcurrent(pending, 8, fetchReview) : 
 for (const review of fetched.filter(Boolean)) existingById.set(review.id, review);
 for (const article of pending) seen.add(Number(article.articleId));
 
-const reviews = [...existingById.values()].sort((a, b) => b.id - a.id);
+const reviews = [...existingById.values()].map(({ author, ...review }) => review).sort((a, b) => b.id - a.id);
 reviewsTotal = reviews.length;
 const payload = {
   source: `https://cafe.naver.com/f-e/cafes/${cafeId}/menus/${menuId}`,
