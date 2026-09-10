@@ -218,6 +218,18 @@ function pagination(current, total) {
   return `<nav class="review-pagination" aria-label="구매후기 페이지">${current > 1 ? `<a href="${pageHref(current - 1)}" aria-label="이전 페이지">←</a>` : '<span></span>'}${links.join('')}${current < total ? `<a href="${pageHref(current + 1)}" aria-label="다음 페이지">→</a>` : '<span></span>'}</nav>`;
 }
 
+async function updateHomepageReviews(reviews) {
+  const indexPath = path.join(root, 'index.html');
+  const indexHtml = await readFile(indexPath, 'utf8');
+  const cards = reviews.slice(0, 6).map((review) => {
+    return `<article class="home-review-card reveal"><a href="reviews/${review.id}.html"><div class="home-review-card-body"><time datetime="${review.date}">${formatDate(review.date)}</time><h3>${esc(review.title)}</h3><p>${esc(truncate(review.body || review.title, 100))}</p><span class="home-review-arrow">후기 읽기 →</span></div></a></article>`;
+  }).join('\n        ');
+  const block = `<!-- PURCHASE_REVIEWS_START -->\n    <section class="home-reviews section-space" id="reviews" aria-labelledby="home-reviews-title">\n      <header class="home-reviews-head reveal"><div class="section-label">04 · CUSTOMER REVIEWS</div><h2 id="home-reviews-title">직접 사용한 분들의 이야기</h2><p>노리박스를 구매한 고객이 네이버 카페에 공개한 실제 사용후기입니다.</p></header>\n      <div class="home-review-grid">${cards}</div>\n      <div class="home-reviews-more reveal"><a class="text-link" href="reviews/">구매후기 전체 보기 <span aria-hidden="true">→</span></a></div>\n    </section>\n    <!-- PURCHASE_REVIEWS_END -->`;
+  const updated = indexHtml.replace(/<!-- PURCHASE_REVIEWS_START -->[\s\S]*?<!-- PURCHASE_REVIEWS_END -->/, block);
+  if (updated === indexHtml) throw new Error('메인 구매후기 영역 표시자를 찾을 수 없습니다.');
+  await writeFile(indexPath, updated, 'utf8');
+}
+
 function listPage(reviews, page, totalPages) {
   const nested = page > 1;
   const prefix = nested ? '../../' : '../';
@@ -316,6 +328,7 @@ const payload = {
   reviews
 };
 await writeFile(dataFile, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+await updateHomepageReviews(reviews);
 
 const totalPages = Math.max(1, Math.ceil(reviews.length / pageSize));
 for (let page = 1; page <= totalPages; page += 1) {
