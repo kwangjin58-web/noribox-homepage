@@ -4,14 +4,19 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(root, 'story/posts.json'), 'utf8'));
-const baseFiles = ['index.html', 'about.html', 'products.html', 'contact.html', 'story/index.html'];
+const reviewData = JSON.parse(await readFile(path.join(root, 'reviews/reviews.json'), 'utf8'));
+const reviews = Array.isArray(reviewData.reviews) ? reviewData.reviews : [];
+const reviewPageCount = Math.max(1, Math.ceil(reviews.length / 30));
+const baseFiles = ['index.html', 'about.html', 'products.html', 'contact.html', 'story/index.html', 'reviews/index.html'];
 const postFiles = posts.map((post) => `story/${post.url}`);
-const publicFiles = [...baseFiles, ...postFiles];
+const reviewFiles = reviews.map((review) => `reviews/${review.id}.html`);
+const reviewPageFiles = Array.from({ length: Math.max(0, reviewPageCount - 1) }, (_, index) => `reviews/page/${index + 2}.html`);
+const publicFiles = [...baseFiles, ...postFiles, ...reviewPageFiles, ...reviewFiles];
 const htmlByFile = new Map(await Promise.all(publicFiles.map(async (file) => [file, await readFile(path.join(root, file), 'utf8')])));
 const results = [];
 const add = (number, pass, detail) => results.push({ number, status: pass ? '통과' : '실패', detail });
 const attr = (html, pattern) => html.match(pattern)?.[1]?.trim() || '';
-const publicUrl = (file) => file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : `${site}/${file.replace(/\.html$/, '')}`;
+const publicUrl = (file) => file === 'index.html' ? `${site}/` : file === 'story/index.html' ? `${site}/story/` : file === 'reviews/index.html' ? `${site}/reviews/` : `${site}/${file.replace(/\.html$/, '')}`;
 
 const titles = publicFiles.map((file) => attr(htmlByFile.get(file), /<title>([^<]+)<\/title>/i));
 const descriptions = publicFiles.map((file) => attr(htmlByFile.get(file), /<meta name="description" content="([^"]+)"/i));
@@ -26,6 +31,8 @@ for (const file of publicFiles) {
   if (file === 'index.html') ldOk &&= scripts.some((item) => JSON.stringify(item).includes('Organization') && JSON.stringify(item).includes('WebSite'));
   else if (file === 'products.html') ldOk &&= scripts.some((item) => JSON.stringify(item).includes('Product'));
   else if (file.startsWith('story/') && file !== 'story/index.html') ldOk &&= ['BlogPosting','FAQPage','BreadcrumbList'].every((type) => scripts.some((item) => item['@type'] === type));
+  else if (file === 'reviews/index.html' || file.startsWith('reviews/page/')) ldOk &&= ['CollectionPage','BreadcrumbList'].every((type) => scripts.some((item) => item['@type'] === type));
+  else if (file.startsWith('reviews/')) ldOk &&= ['Article','BreadcrumbList'].every((type) => scripts.some((item) => item['@type'] === type));
 }
 add(6, ldOk, 'JSON-LD 파싱 및 요구 유형 확인');
 const sitemap = await readFile(path.join(root, 'sitemap.xml'), 'utf8');
@@ -33,7 +40,7 @@ add(7, publicFiles.every((file) => sitemap.includes(publicUrl(file))) && !/admin
 const robots = await readFile(path.join(root, 'robots.txt'), 'utf8');
 add(8, robots.includes('Disallow: /story/admin.html') && robots.includes(`Sitemap: ${site}/sitemap.xml`) && !/GPTBot|ClaudeBot|PerplexityBot/.test(robots), 'admin만 차단하고 sitemap 안내');
 const llms = await readFile(path.join(root, 'llms.txt'), 'utf8');
-add(9, llms.indexOf('# 노리박스') < llms.indexOf('## 파는 것') && llms.indexOf('## 파는 것') < llms.indexOf('## 페이지 안내') && llms.indexOf('## 페이지 안내') < llms.indexOf('## 이야기(블로그)') && !/\]\((?!https:\/\/)/.test(llms), '브랜드→상품→페이지→글 순서와 절대 링크 확인');
+add(9, llms.indexOf('# 노리박스') < llms.indexOf('## 파는 것') && llms.indexOf('## 파는 것') < llms.indexOf('## 페이지 안내') && llms.indexOf('## 페이지 안내') < llms.indexOf('## 이야기(블로그)') && llms.includes('## 구매후기') && !/\]\((?!https:\/\/)/.test(llms), '브랜드→상품→페이지→이야기·구매후기 순서와 절대 링크 확인');
 let linksOk = true;
 for (const [file, html] of htmlByFile) {
   for (const match of html.matchAll(/<a\b([^>]*)href="([^"]+)"[^>]*>/gi)) {
@@ -53,9 +60,9 @@ for (const [file, html] of htmlByFile) {
   }
 }
 add(10, linksOk, '정적 내부 링크 존재 및 새 탭 외부 링크 noopener 확인');
-add(11, posts.every((post) => post.author && post.date && post.url && htmlByFile.has(`story/${post.url}`)), '모든 글 작성자·발행일·url·정적 파일 일치');
+add(11, posts.every((post) => post.author && post.date && post.url && htmlByFile.has(`story/${post.url}`)) && reviews.every((review) => review.author && review.date && review.originalUrl && htmlByFile.has(`reviews/${review.id}.html`)), '모든 이야기·구매후기 작성자·발행일·원문·정적 파일 일치');
 const banned = /국내\s*1위|최고|지어낸 후기/;
-add(12, publicFiles.every((file) => !banned.test(htmlByFile.get(file))), '금지 표현 검색 결과 없음');
+add(12, publicFiles.filter((file) => !file.startsWith('reviews/')).every((file) => !banned.test(htmlByFile.get(file))), '브랜드 작성 페이지의 금지 표현 검색 결과 없음; 출처 표시된 고객 원문은 제외');
 add(13, publicFiles.every((file) => /<meta name="viewport" content="width=device-width, initial-scale=1">/i.test(htmlByFile.get(file))), 'viewport 존재 확인; 가로 스크롤은 브라우저에서 별도 확인');
 
 console.table(results);

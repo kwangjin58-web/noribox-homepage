@@ -4,15 +4,18 @@ import process from 'node:process';
 
 const projectRoot = process.cwd();
 const publicPages = ['index.html', 'about.html', 'products.html', 'contact.html'];
-const storyRoot = join(projectRoot, 'story');
-
-if (existsSync(storyRoot)) {
-  for (const entry of readdirSync(storyRoot, { withFileTypes: true })) {
-    if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'admin.html') {
-      publicPages.push(join('story', entry.name));
-    }
+const addHtmlFiles = (relativeDir) => {
+  const absoluteDir = join(projectRoot, relativeDir);
+  if (!existsSync(absoluteDir)) return;
+  for (const entry of readdirSync(absoluteDir, { withFileTypes: true })) {
+    const relativePath = join(relativeDir, entry.name);
+    if (entry.isDirectory()) addHtmlFiles(relativePath);
+    else if (entry.name.endsWith('.html') && entry.name !== 'admin.html') publicPages.push(relativePath);
   }
-}
+};
+
+addHtmlFiles('story');
+addHtmlFiles('reviews');
 
 const requiredFooterContent = [
   '<footer class="site-footer">',

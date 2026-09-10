@@ -5,6 +5,14 @@ const root = path.resolve(import.meta.dirname, '..');
 const storyDir = path.join(root, 'story');
 const site = 'https://noribox.org';
 const posts = JSON.parse(await readFile(path.join(storyDir, 'posts.json'), 'utf8'));
+let reviews = [];
+try {
+  const reviewData = JSON.parse(await readFile(path.join(root, 'reviews', 'reviews.json'), 'utf8'));
+  reviews = Array.isArray(reviewData.reviews) ? reviewData.reviews : [];
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
+const reviewPageCount = Math.max(1, Math.ceil(reviews.length / 30));
 const esc = (value = '') => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 const xml = esc;
 const jsonLd = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
@@ -86,7 +94,7 @@ for (let index = 0; index < posts.length; index += 1) {
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 바로가기</a>
-  <header class="site-header" data-header><a class="brand" href="../index.html" aria-label="노리박스 홈"><img class="brand-logo" src="../assets/images/noribox-logo.png" alt="노리박스"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html#home">홈</a><a href="../about.html">브랜드소개</a><a href="../products.html">제품</a><a href="./" aria-current="page">이야기</a><a href="../contact.html">연락하기</a></nav></header>
+  <header class="site-header" data-header><a class="brand" href="../index.html" aria-label="노리박스 홈"><img class="brand-logo" src="../assets/images/noribox-logo.png" alt="노리박스"></a><button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav"><span class="sr-only">메뉴 열기</span><span></span><span></span></button><nav class="site-nav" id="site-nav" aria-label="주요 메뉴"><a href="../index.html#home">홈</a><a href="../about.html">브랜드소개</a><a href="../products.html">제품</a><a href="../reviews/">구매후기</a><a href="./" aria-current="page">이야기</a><a href="../contact.html">연락하기</a></nav></header>
   <div class="post-wrap"><a class="back-link" href="./">← 이야기 목록</a><main id="main"><article class="post-article reveal is-visible"><header class="post-head"><time datetime="${esc(post.date)}">${formatDate(post.date)}</time><h1>${esc(post.title)}</h1><p class="post-author">글 · ${esc(post.author)}</p><div class="post-tags">${post.tags.map((tag) => `<span class="post-tag">${esc(tag)}</span>`).join('')}</div></header><div class="post-body">${bodyHtml(post.body, post.images || [])}</div><section class="faq"><h2>자주 묻는 질문</h2>${faq.map((item) => `<details><summary>${esc(item.q)}</summary><p>${esc(item.a)}</p></details>`).join('')}</section><section class="sources"><h2>출처</h2><ul>${sources.map((item) => `<li><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.title)}</a></li>`).join('')}</ul></section><nav class="post-navigation" aria-label="이전 글과 다음 글">${navCell(previous, '이전 글', 'prev')}${navCell(next, '다음 글', 'next')}</nav></article></main></div>
   <footer class="site-footer"><a class="brand" href="../index.html" aria-label="노리박스 홈"><img class="brand-logo" src="../assets/images/noribox-logo.png" alt="노리박스"></a><p>즐거웠던 추억과 새로운 추억을 잇습니다.</p><div class="footer-business" aria-label="사업자 및 고객 안내"><section class="footer-company"><h2 class="sr-only">사업자 정보</h2><p><strong>상호명</strong> : (주)노리박스게임연구소　 <strong>대표</strong> : 양광진</p><p><strong>주소</strong> : 서울특별시 송파구 충민로 66 가든파이브라이프 T9121호</p><p><strong>사업자등록번호</strong> : 157-81-02792　 <strong>통신판매업신고</strong> : 2022-서울송파-2207호 <a href="https://www.ftc.go.kr/www/selectBizCommList.do?key=254" target="_blank" rel="noopener">[사업자정보확인]</a></p><p><strong>개인정보보호책임자</strong> : 김병석 (noribox@kakao.com)　 <strong>E-mail</strong> : <a href="mailto:noribox@kakao.com">noribox@kakao.com</a></p></section><section><h2>고객센터</h2><strong class="footer-phone">02-404-1404</strong><p>평일 09:00~18:00</p><p>주말, 공휴일도 상담하오니 부담 없이 연락주세요.</p></section><section><h2>입금 계좌안내</h2><p class="footer-account">KB국민은행 029401-00-015170</p><p>예금주 : (주)노리박스게임연구소</p><p class="footer-deposit-note">입금 시 주문자 성함 기재</p></section></div><nav class="footer-links" aria-label="연락처와 SNS"><a href="mailto:noribox@kakao.com" target="_blank" rel="noopener">noribox@kakao.com</a><a href="http://pf.kakao.com/_yxeGFC/chat" target="_blank" rel="noopener">카카오톡</a><a href="https://www.instagram.com/noribox58/" target="_blank" rel="noopener">인스타그램</a><a href="https://cafe.naver.com/noribox" target="_blank" rel="noopener">네이버카페</a><a href="https://www.youtube.com/@noribox" target="_blank" rel="noopener">유튜브</a></nav><div class="footer-bottom"><span>© <span data-year></span> 노리박스. All rights reserved.</span><a href="#main">맨 위로 ↑</a></div></footer>
   <script src="../script.js"></script>
@@ -99,10 +107,15 @@ for (let index = 0; index < posts.length; index += 1) {
 const sorted = posts.slice().sort((a, b) => String(b.date).localeCompare(String(a.date)));
 const today = new Date().toISOString().slice(0, 10);
 const sitemapUrls = [
-  { url: `${site}/`, date: today }, { url: `${site}/about`, date: today }, { url: `${site}/products`, date: today }, { url: `${site}/contact`, date: today }, { url: `${site}/story/`, date: today },
-  ...sorted.map((post) => ({ url: `${site}/story/${publicUrl(post)}`, date: post.updated || post.date }))
+  { url: `${site}/`, date: today }, { url: `${site}/about`, date: today }, { url: `${site}/products`, date: today }, { url: `${site}/reviews/`, date: reviews[0]?.date || today }, { url: `${site}/contact`, date: today }, { url: `${site}/story/`, date: today },
+  ...sorted.map((post) => ({ url: `${site}/story/${publicUrl(post)}`, date: post.updated || post.date })),
+  ...Array.from({ length: Math.max(0, reviewPageCount - 1) }, (_, index) => ({ url: `${site}/reviews/page/${index + 2}`, date: reviews[0]?.date || today })),
+  ...reviews.map((review) => ({ url: `${site}/reviews/${review.id}`, date: review.date }))
 ];
 await writeFile(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((item) => `  <url><loc>${xml(item.url)}</loc><lastmod>${item.date}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 await writeFile(path.join(root, 'feed.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>노리박스 이야기</title><link>${site}/story/</link><description>오락실게임기와 노리박스의 제품·사용 이야기</description><language>ko</language>${sorted.slice(0, 20).map((post) => `<item><title>${xml(post.title)}</title><link>${site}/story/${publicUrl(post)}</link><description>${xml(post.description)}</description><pubDate>${new Date(`${post.date}T00:00:00+09:00`).toUTCString()}</pubDate><guid isPermaLink="true">${site}/story/${publicUrl(post)}</guid></item>`).join('')}</channel></rss>\n`);
-await writeFile(path.join(root, 'llms.txt'), `# 노리박스\n\n노리박스는 즐거웠던 오락실의 추억과 새로운 가족의 추억을 잇는 브랜드입니다.\n\n## 파는 것\n\n가정용·업소용 오락실게임기와 관련 제품을 소개합니다.\n\n## 페이지 안내\n\n- [홈](${site}/): 브랜드와 대표 제품\n- [브랜드소개](${site}/about): 시작 이야기와 제품 원칙\n- [제품](${site}/products): 현재 제품 목록과 구매 링크\n- [연락하기](${site}/contact): 이메일과 공식 SNS\n- [이야기](${site}/story/): 오락실게임기 사용·선택 가이드\n\n## 이야기(블로그)\n\n${sorted.slice(0, 30).map((post) => `- [${post.title}](${site}/story/${publicUrl(post)}): ${post.summary}`).join('\n')}\n`);
+await writeFile(path.join(root, 'llms.txt'), `# 노리박스\n\n노리박스는 즐거웠던 오락실의 추억과 새로운 가족의 추억을 잇는 브랜드입니다.\n\n## 파는 것\n\n가정용·업소용 오락실게임기와 관련 제품을 소개합니다.\n\n## 페이지 안내\n\n- [홈](${site}/): 브랜드와 대표 제품\n- [브랜드소개](${site}/about): 시작 이야기와 제품 원칙\n- [제품](${site}/products): 현재 제품 목록과 구매 링크\n- [구매후기](${site}/reviews/): 네이버 카페에 공개된 실제 고객 사용후기와 원문\n- [연락하기](${site}/contact): 이메일과 공식 SNS\n- [이야기](${site}/story/): 오락실게임기 사용·선택 가이드\n\n## 이야기(블로그)\n\n${sorted.slice(0, 30).map((post) => `- [${post.title}](${site}/story/${publicUrl(post)}): ${post.summary}`).join('\n')}\n\n## 구매후기\n\n${reviews.slice(0, 30).map((review) => `- [${review.title}](${site}/reviews/${review.id}): ${String(review.body || review.title).replace(/\s+/g, ' ').slice(0, 120)}`).join('\n')}\n`);
+const llmsPath = path.join(root, 'llms.txt');
+const normalizedLlms = (await readFile(llmsPath, 'utf8')).replace(/[ \t]+$/gm, '');
+await writeFile(llmsPath, normalizedLlms, 'utf8');
 await writeFile(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /story/admin.html\n\nSitemap: ${site}/sitemap.xml\n`);
