@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [아파트에서 오락기를 사용할 때 소음을 줄이는 방법은 무엇인가요?](https://noribox.org/story/reduce-home-arcade-noise-apartment): 아파트에서 오락기 소음을 줄이려면 스피커 소리와 조작·바닥 진동을 나눠 확인하고, 안정적인 배치와 사용 시간대를 함께 조정해야 합니다.
 - [오락기 소리는 집에서 어떻게 조절하나요?](https://noribox.org/story/how-to-adjust-home-arcade-volume): 집에서 오락기 소리를 조절할 때는 제품의 음량 조절 위치와 TV 같은 연결 화면의 음량을 구분하고, 낮은 단계에서 게임별 차이를 확인해야 합니다.
 - [오락기 조작감이 실제 오락실과 다른 이유는 무엇인가요?](https://noribox.org/story/why-arcade-controls-feel-different): 오락기 조작감은 조이스틱과 버튼의 구성뿐 아니라 조작부 높이, 플레이 자세, 게임별 입력 설정과 사용 상태가 함께 달라지면 실제 오락실과 다르게 느껴질 수 있습니다.
 - [가정용 오락기의 조이스틱과 버튼은 어떻게 확인해야 하나요?](https://noribox.org/story/home-arcade-joystick-button-check): 가정용 오락기의 조이스틱과 버튼은 외형보다 방향 입력, 버튼별 반응, 손이 닿는 거리와 두 사람이 사용할 공간을 실제 사용 순서에 맞춰 확인해야 합니다.
