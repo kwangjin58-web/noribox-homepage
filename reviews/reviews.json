@@ -3,6 +3,7 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    3928,
     3923,
     3922,
     3921,
@@ -1503,6 +1504,26 @@
     32
   ],
   "reviews": [
+    {
+      "id": 3928,
+      "title": "게임이 많고 소리도 예전 그대로라 좋아요 다만 게임 리",
+      "date": "2026-09-15",
+      "body": "게임이 많고 소리도 예전 그대로라 좋아요\n\n다만 게임 리스트 같은걸 사용설명서와 같이 보내줬으면 좋았겠다 싶어요\n\n노리박스 32 강화유리 스탠드형 오락실게임기 DX팩 오락기",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA5MTVfMjk2/MDAxNzg5NDI3Nzg4Mjgw.6GZXVqlsfmwiqTgbORIWkfdVDsIv8HjtPM4oGW0EdZUg.t9rFPexDG_tvsRtX_MHLKEcISV_PFvZgpWzUsHhWEHIg.JPEG/image.jpg",
+          "width": 740,
+          "height": 986
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/3526876517",
+          "label": "노리박스 32 강화유리 스탠드형 오락실게임기 DX팩 오락기"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/3928?menuid=9"
+    },
     {
       "id": 3923,
       "title": "2P의 C버튼이 망가져 주문했는데 친절하고 쉽게 설명해",
