@@ -3,6 +3,8 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    3930,
+    3929,
     3928,
     3923,
     3922,
@@ -1504,6 +1506,46 @@
     32
   ],
   "reviews": [
+    {
+      "id": 3930,
+      "title": "아주 잼있게 여가 생활 합니다. 너무 친절히 가르쳐주셔",
+      "date": "2026-09-16",
+      "body": "아주 잼있게 여가 생활 합니다. 너무 친절히 가르쳐주셔서 좋아요\n\n노리박스 32+ 하이퍼PC 울트라 오락실게임기 RTX4060 고해상도 철권8 올인원세트",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA5MTZfMjc3/MDAxNzg5NTE0MjA0Nzk4.MBt5kVKfqE7W3_5zA3VIgfAmJdkCVlBjUvabRwsB_aAg.qb0VKU-uE69k-60Cc3XYiMcodKcs6AZT3GLCBFsMVXsg.JPEG/image.jpg",
+          "width": 740,
+          "height": 986
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/12233883655",
+          "label": "노리박스 32+ 하이퍼PC 울트라 오락실게임기 RTX4060 고해상도 철권8 올인원세트"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/3930?menuid=9"
+    },
+    {
+      "id": 3929,
+      "title": "옛날 추억이 새록새록~ 아이가 크면 가치 즐기면 좋겠어",
+      "date": "2026-09-16",
+      "body": "옛날 추억이 새록새록~\n\n아이가 크면 가치 즐기면 좋겠어요~\n\n아주 좋아요~~\n\n노리박스 32 좌식형 강화유리 화이트 오락실게임기 TV수신 DX팩",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjA5MTZfMTQg/MDAxNzg5NTE0MTg2ODgx.pUTK5MJTgPtIzrZNLLr4z5Bv6NaOjjo7C6O7FddKchsg.ZBTYCFoCwz15zaJqRdziGuNxZYOb0aQt7qYTFqVtjDYg.JPEG/image.jpg",
+          "width": 740,
+          "height": 555
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/3655368373",
+          "label": "노리박스 32 좌식형 강화유리 화이트 오락실게임기 TV수신 DX팩"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/3929?menuid=9"
+    },
     {
       "id": 3928,
       "title": "게임이 많고 소리도 예전 그대로라 좋아요 다만 게임 리",
