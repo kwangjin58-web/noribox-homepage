@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [오락기를 처음 설치할 때 가장 먼저 확인할 것은 무엇인가요?](https://noribox.org/story/first-home-arcade-installation-checks): 오락기를 처음 설치할 때는 주문한 제품명과 구성품을 맞춘 뒤 설치 위치, 전원, 연결 순서, 첫 작동 상태를 차례로 확인해야 합니다.
 - [스탠드형 오락기를 집 안에서 옮길 때 무엇을 조심해야 하나요?](https://noribox.org/story/move-upright-arcade-safely): 스탠드형 오락기는 전원과 케이블을 분리한 뒤 이동 경로를 비우고, 정확한 모델의 구조를 확인해 두 사람이 함께 옮기는 편이 안전합니다.
 - [오락기 화면과 조작부는 어떻게 청소하나요?](https://noribox.org/story/clean-home-arcade-screen-controls): 오락기 화면과 조작부는 전원을 끈 뒤 부드러운 천과 마른 도구로 나누어 닦고 제품별 소재 안내를 확인해야 합니다.
 - [오락기를 안전하게 켜고 끄는 방법은 무엇인가요?](https://noribox.org/story/safe-home-arcade-power-on-off): 오락기를 켜고 끌 때는 케이블과 주변을 확인하고, 제품별 전원·종료 안내를 차례로 따라야 합니다.
