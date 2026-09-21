@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://noribox.org/</loc><lastmod>2026-09-20</lastmod></url>
-  <url><loc>https://noribox.org/about</loc><lastmod>2026-09-20</lastmod></url>
-  <url><loc>https://noribox.org/products</loc><lastmod>2026-09-20</lastmod></url>
+  <url><loc>https://noribox.org/</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://noribox.org/about</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://noribox.org/products</loc><lastmod>2026-09-21</lastmod></url>
   <url><loc>https://noribox.org/reviews/</loc><lastmod>2026-09-20</lastmod></url>
-  <url><loc>https://noribox.org/contact</loc><lastmod>2026-09-20</lastmod></url>
-  <url><loc>https://noribox.org/story/</loc><lastmod>2026-09-20</lastmod></url>
+  <url><loc>https://noribox.org/contact</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://noribox.org/story/</loc><lastmod>2026-09-21</lastmod></url>
+  <url><loc>https://noribox.org/story/joystick-button-not-working-checks</loc><lastmod>2026-09-22</lastmod></url>
   <url><loc>https://noribox.org/story/arcade-game-not-starting-checks</loc><lastmod>2026-09-21</lastmod></url>
   <url><loc>https://noribox.org/story/first-home-arcade-installation-checks</loc><lastmod>2026-09-20</lastmod></url>
   <url><loc>https://noribox.org/story/move-upright-arcade-safely</loc><lastmod>2026-09-19</lastmod></url>
