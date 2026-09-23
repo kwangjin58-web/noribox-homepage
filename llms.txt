@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [새 오락기와 중고 오락기는 어떤 기준으로 비교해야 하나요?](https://noribox.org/story/new-versus-used-home-arcade-checklist): 가정용 오락기를 새 제품과 중고 제품 중에서 고를 때 제품 구성, 현재 상태, 전달·설치 조건, 문의 가능 범위를 같은 기준으로 확인하는 방법을 정리합니다.
 - [가정용 오락기 A/S를 요청하기 전에 준비할 것은 무엇인가요?](https://noribox.org/story/home-arcade-service-request-preparation): 가정용 오락기 A/S 문의 전 주문한 제품명과 구매 내역, 증상이 나타나는 순서, 사진이나 영상을 모아 판매자에게 전달하는 방법을 정리합니다.
 - [조이스틱이나 버튼에 문제가 생기면 어떻게 해야 하나요?](https://noribox.org/story/joystick-button-not-working-checks): 조이스틱이나 버튼에 문제가 생기면 어느 조작이 언제 반응하지 않는지 기록하고, 전원을 끈 뒤 외부 상태만 확인해 판매자에게 알려야 합니다.
 - [오락기 게임이 실행되지 않을 때 무엇부터 확인해야 하나요?](https://noribox.org/story/arcade-game-not-starting-checks): 오락기 게임이 실행되지 않으면 전원·화면·게임 선택·조작 반응을 나눠 확인하고, 반복 조작 전에 현재 상태를 기록해야 합니다.
@@ -46,7 +47,6 @@
 - [노리박스는 다른 가정용 오락기와 무엇이 다른가요?](https://noribox.org/story/why-noribox): 게임 수보다 실제 사용 경험을 먼저 보는 노리박스의 제품 선택 기준과 만드는 원칙을 소개합니다.
 - [집에서 오락실 느낌을 살리려면 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-buying-guide): 집에서 오락실게임기를 고를 때 게임 실행, 조작, 설치 공간을 확인하는 기준을 정리합니다.
 - [노리박스는 왜 오락실게임기를 만들기 시작했나요?](https://noribox.org/story/why-started-noribox): 집에서도 오락실의 느낌을 편하게 즐기고 싶었던 경험에서 노리박스가 시작된 과정을 전합니다.
-- [가정용 오락기를 구매한 뒤 어떤 지원이 필요한가요?](https://noribox.org/story/home-arcade-after-purchase): 가정용 오락기를 사용하며 생길 수 있는 문의와 구매 전에 확인할 지원 기준을 정리합니다.
 
 ## 구매후기
 
