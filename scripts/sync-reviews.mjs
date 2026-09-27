@@ -123,7 +123,7 @@ function imagesFromElements(elements = []) {
 
 async function fetchReview(listItem) {
   const id = Number(listItem.articleId);
-  const url = `https://apis.naver.com/cafe-web/cafe-articleapi/v3/cafes/${cafeId}/articles/${id}?query=&useCafeId=true&requestFrom=A`;
+  const url = `https://article.cafe.naver.com/gw/v4/cafes/${cafeId}/articles/${id}?query=&menuId=${menuId}&useCafeId=true&requestFrom=A`;
   let payload;
   try {
     payload = await fetchJson(url);
@@ -287,7 +287,7 @@ ${head({ title: pageTitle, description, canonical, ogType: 'article', ogImage: r
     <a class="review-back" href="./">← 구매후기 목록</a>
     <article class="review-article">
       <header><p class="review-source-label">네이버 카페 실제 구매후기</p><h1>${esc(review.title)}</h1><div class="review-meta"><time datetime="${review.date}">${formatDate(review.date)}</time><span>후기 번호 ${review.id}</span></div></header>
-      ${images ? `<div class="review-images">${images}</div>` : ''}
+${images ? `      <div class="review-images">${images}</div>` : ''}
       <div class="review-content">${paragraphs || '<p>사진으로 작성된 구매후기입니다.</p>'}</div>
       ${links}
       <aside class="review-origin"><p>이 글은 노리박스 네이버 카페 구매후기 게시판에 공개된 원문을 출처와 함께 옮긴 것입니다.</p><a href="${review.originalUrl}" target="_blank" rel="noopener">네이버 카페에서 원문 보기 ↗</a></aside>
@@ -314,9 +314,20 @@ if (pending.length === 0 && existing.reviews.length > 0 && !forceRebuild) {
   console.log('새 구매후기가 없어 파일을 변경하지 않았습니다.');
   process.exit(0);
 }
-const fetched = pending.length ? await mapConcurrent(pending, 8, fetchReview) : [];
-for (const review of fetched.filter(Boolean)) existingById.set(review.id, review);
-for (const article of pending) seen.add(Number(article.articleId));
+const fetched = pending.length ? await mapConcurrent(pending, 8, async (article) => {
+  try {
+    return { article, review: await fetchReview(article), retry: false };
+  } catch (error) {
+    console.warn(`후기 ${article.articleId} 상세 조회 실패, 다음 실행에서 재시도: ${error.message}`);
+    return { article, review: null, retry: true };
+  }
+}) : [];
+for (const result of fetched) {
+  if (result.review) existingById.set(result.review.id, result.review);
+  if (!result.retry) seen.add(Number(result.article.articleId));
+}
+const retryCount = fetched.filter((result) => result.retry).length;
+if (retryCount) console.warn(`상세 조회에 실패한 후기 ${retryCount}건은 다음 실행에서 다시 확인합니다.`);
 
 const reviews = [...existingById.values()].map(({ author, ...review }) => review).sort((a, b) => b.id - a.id);
 reviewsTotal = reviews.length;
