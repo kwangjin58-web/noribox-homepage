@@ -12,13 +12,13 @@
     ],
     "images": [
       {
-        "beforeHeading": "설치 공간과 동선을 먼저 확인하세요",
+        "beforeHeading": "설치 공간과 이동 경로를 먼저 확인하세요",
         "src": "../assets/images/office-arcade-space.png",
         "alt": "성인이 일반적인 오락기와 사무실 휴게 공간 메모를 살피는 연출 장면",
         "caption": "사무실 또는 매장 공간을 확인하는 연출 이미지입니다."
       },
       {
-        "beforeHeading": "조작과 연결 환경을 함께 보세요",
+        "beforeHeading": "이용하는 사람과 조작 환경을 생각하세요",
         "src": "../assets/images/office-arcade-controls.png",
         "alt": "성인이 일반적인 오락기의 조작부와 연결 공간을 확인하는 연출 장면",
         "caption": "조작과 연결 환경을 확인하는 연출 이미지입니다."
