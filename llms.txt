@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [가정용 오락기의 설치 공간은 어떻게 재면 되나요?](https://noribox.org/story/measure-home-arcade-space): 가정용 오락기를 설치할 자리와 반입 경로, 전원·화면 연결 여유를 같은 순서로 측정하는 방법을 정리합니다.
 - [매장이나 사무실에 놓을 오락기는 어떻게 고르나요?](https://noribox.org/story/office-arcade-selection): 매장과 사무실용 오락기는 설치 공간, 이용하는 사람, 조작·소음 환경, 배송과 문의 방법을 함께 확인해 고르는 것이 좋습니다.
 - [오락실 게임기를 부모님 선물로 고를 때 무엇을 확인해야 하나요?](https://noribox.org/story/parent-gift-home-arcade): 부모님 선물용 가정용 오락기는 가격보다 설치 공간, 조작과 화면 환경, 즐길 게임, 배송·문의 방법을 먼저 확인하는 것이 좋습니다.
 - [가정용 오락기를 고를 때 가격 외에 무엇을 봐야 하나요?](https://noribox.org/story/home-arcade-beyond-price): 가정용 오락기는 가격과 함께 설치 공간, 기기 형태와 구성, 자주 할 게임, 구매 전 문의 내용을 확인해 고르는 것이 좋습니다.
@@ -46,7 +47,6 @@
 - [TV 연결형 오락기는 어떻게 설치하나요?](https://noribox.org/story/tv-connected-arcade-installation): TV 연결형 오락기는 제품 안내에 맞는 연결 단자와 설치 위치를 먼저 확인하고, 전원을 켠 뒤 화면과 조작을 순서대로 점검하면 됩니다.
 - [집에서 오락실 게임기를 하려면 무엇이 필요한가요?](https://noribox.org/story/home-arcade-getting-started): 집에서 오락실 게임기를 시작할 때는 설치할 자리, 화면 연결 방식, 원하는 게임과 조작 환경을 먼저 확인하면 됩니다.
 - [가정용 오락기에는 어떤 게임이 들어 있나요?](https://noribox.org/story/home-arcade-game-list): 가정용 오락기 구매 전 게임 수록 목록과 원하는 게임의 포함 여부를 확인하는 기준을 정리합니다.
-- [가정용 오락기는 어떻게 하면 더 재미있게 즐길 수 있나요?](https://noribox.org/story/home-arcade-more-fun): 혼자 할 때와 가족이 함께할 때, 가정용 오락기를 오래 즐기는 간단한 방법을 소개합니다.
 
 ## 구매후기
 
