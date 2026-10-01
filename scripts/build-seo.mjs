@@ -30,10 +30,17 @@ const inline = (value = '') => {
   }
   return out + esc(value.slice(last));
 };
+const tableCells = (line = '') => String(line).trim().replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim());
+const tableHtml = (lines) => {
+  const rows = lines.filter((_, index) => index !== 1).map(tableCells);
+  const [head = [], ...body] = rows;
+  return `<div class="post-table-wrap"><table><thead><tr>${head.map((cell) => `<th scope="col">${inline(cell)}</th>`).join('')}</tr></thead><tbody>${body.map((row) => `<tr>${row.map((cell) => `<td>${inline(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+};
 const bodyHtml = (body = '', images = []) => String(body).replace(/\r\n/g, '\n').split(/\n\s*\n/).map((block) => {
   const value = block.trim();
   if (!value) return '';
   const lines = value.split('\n');
+  if (lines.length >= 2 && /^\s*\|.*\|\s*$/.test(lines[0]) && /^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*$/.test(lines[1])) return tableHtml(lines);
   if (lines.every((line) => /^- /.test(line.trim()))) return `<ul>${lines.map((line) => `<li>${inline(line.trim().slice(2))}</li>`).join('')}</ul>`;
   if (/^## /.test(value)) {
     const heading = value.slice(3).trim();

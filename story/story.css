@@ -42,6 +42,11 @@
 .post-body ul { margin: 0 0 1.8em 1.25em; padding: 0; }
 .post-body li { margin-bottom: .55em; }
 .post-body li::marker { color: var(--cobalt); }
+.post-table-wrap { margin: 0 0 2em; overflow-x: auto; border: 1px solid rgba(46,46,46,.14); }
+.post-body table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.post-body th, .post-body td { padding: 14px 16px; border-bottom: 1px solid rgba(46,46,46,.12); text-align: left; vertical-align: top; }
+.post-body th { background: rgba(29,78,216,.06); color: var(--charcoal); font-size: 14px; font-weight: 600; }
+.post-body tbody tr:last-child td { border-bottom: 0; }
 .post-body a { color: var(--cobalt); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .22em; }
 .post-image { margin: 2.4em 0 2.8em; }
 .post-image img { display: block; width: 100%; height: auto; border-radius: 2px; }
