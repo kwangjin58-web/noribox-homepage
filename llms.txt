@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [분리형 오락기는 보관과 이동을 어떻게 고려해야 하나요?](https://noribox.org/story/detachable-arcade-storage-moving): 분리형 오락기는 본체와 조작부의 실제 크기, 보관할 선반, 케이블 정리와 실내 이동 경로를 함께 확인해야 합니다.
 - [TV 연결형 오락기는 어떤 환경에서 고르면 되나요?](https://noribox.org/story/tv-connected-arcade-environment): TV 연결형 오락기는 화면 입력, 조작부 자리, 케이블 동선과 보관 공간을 함께 확인해 고르는 것이 좋습니다.
 - [가정용 오락기를 가족과 함께 쓰려면 무엇을 확인해야 하나요?](https://noribox.org/story/family-home-arcade-checklist): 가족이 함께 쓸 가정용 오락기는 이용할 사람, 조작 위치, 소리와 이용 시간, 설치 공간을 먼저 맞춰야 합니다.
 - [레트로 게임기와 최신 PC형 오락기의 차이](https://noribox.org/story/retro-vs-pc-arcade): 레트로 게임기와 PC형 오락기는 원하는 게임의 시대와 사용 목적부터 비교하면 좋습니다.
@@ -46,7 +47,6 @@
 - [가정용 오락기는 두 사람이 함께 할 수 있나요?](https://noribox.org/story/home-arcade-two-player): 가정용 오락기를 두 사람이 함께 즐기려면 기기와 게임의 동시 이용 안내, 앉는 자리와 조작 공간을 구매 전에 함께 확인하는 편이 좋습니다.
 - [우리 집 공간에는 어떤 오락기 형태가 적당한가요?](https://noribox.org/story/home-arcade-space-guide): 집에 맞는 오락기 형태는 기기 크기보다 주로 즐길 자세와 주변 동선, 화면을 보는 위치를 함께 확인해 고르는 편이 좋습니다.
 - [TV 연결형 분리기통은 어떤 사람에게 잘 맞나요?](https://noribox.org/story/tv-separated-arcade-who-it-suits): TV 연결형 분리기통은 이미 사용하는 TV를 화면으로 활용하고, 기기와 화면을 같은 자리에 두지 않고 싶은 사람에게 검토할 만한 형태입니다.
-- [스탠드형과 좌식형 오락기는 무엇이 다른가요?](https://noribox.org/story/stand-vs-seated-arcade): 스탠드형과 좌식형 오락기는 주로 즐기는 자세와 필요한 공간이 다릅니다. 집에서 누가 어떻게 사용할지 먼저 정하면 선택 기준이 선명해집니다.
 
 ## 구매후기
 
