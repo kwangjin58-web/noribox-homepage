@@ -1,5 +1,6 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { auditBrandClaims } from './audit-brand-claims.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const site = 'https://noribox.org';
@@ -61,8 +62,10 @@ for (const [file, html] of htmlByFile) {
 }
 add(10, linksOk, '정적 내부 링크 존재 및 새 탭 외부 링크 noopener 확인');
 add(11, posts.every((post) => post.author && post.date && post.url && htmlByFile.has(`story/${post.url}`)) && reviews.every((review) => review.date && review.originalUrl && htmlByFile.has(`reviews/${review.id}.html`)), '모든 이야기 작성자 및 구매후기 발행일·원문·정적 파일 일치');
-const banned = /국내\s*1위|최고|지어낸 후기/;
-add(12, publicFiles.filter((file) => !file.startsWith('reviews/')).every((file) => !banned.test(htmlByFile.get(file))), '브랜드 작성 페이지의 금지 표현 검색 결과 없음; 출처 표시된 고객 원문은 제외');
+const claimErrors = publicFiles.filter((file) => !file.startsWith('reviews/'))
+  .flatMap((file) => auditBrandClaims(file, htmlByFile.get(file), reviewData));
+add(12, claimErrors.length === 0, '브랜드 금지 표현 없음; 홈은 후기 ID·원문 출처·생성 카드와 일치하는 고객 제목만 제외');
+for (const error of claimErrors) console.error(error);
 add(13, publicFiles.every((file) => /<meta name="viewport" content="width=device-width, initial-scale=1">/i.test(htmlByFile.get(file))), 'viewport 존재 확인; 가로 스크롤은 브라우저에서 별도 확인');
 
 console.table(results);
