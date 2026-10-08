@@ -36,3 +36,15 @@ python -m http.server 4173
 ```
 
 Vercel 배포에서는 `vercel.json`의 `cleanUrls` 설정으로 `about.html`을 `/about` 주소에서도 제공합니다.
+
+## 구매후기·SEO 회귀 검사
+
+Node.js 22 이상에서 다음 명령으로 확인합니다.
+
+```sh
+node --test scripts/tests/*.test.mjs
+node scripts/audit-seo.mjs
+node scripts/check-footers.mjs
+```
+
+테스트는 임시 폴더와 가짜 네이버 응답으로 동기화 과정을 재현하며, 실제 후기를 조회하거나 저장소의 원문 데이터를 변경하지 않습니다. 홈의 고객 제목은 저장된 후기 ID·공식 카페 원문 URL·생성 카드가 모두 일치할 때 제목 텍스트만 금지 표현 검사에서 제외합니다. 카드 주변 브랜드 문구는 계속 검사하며, 실패 시 파일명과 해당 표현 또는 출처 불일치를 출력합니다. 원문 데이터 자체의 진위는 기존 수집 과정과 코드 리뷰에서 확인해야 합니다.

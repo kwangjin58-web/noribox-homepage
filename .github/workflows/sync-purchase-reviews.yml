@@ -26,6 +26,7 @@ jobs:
         run: node scripts/sync-reviews.mjs
       - name: Verify SEO and protected footer
         run: |
+          node --test scripts/tests/*.test.mjs
           node scripts/check-footers.mjs
           node scripts/audit-seo.mjs
       - name: Publish new reviews
