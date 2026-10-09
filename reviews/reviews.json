@@ -3,6 +3,8 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4004,
+    4003,
     4001,
     4000,
     3999,
@@ -1535,6 +1537,46 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4004,
+      "title": "친절하게 설명도 잘해주시구 게임종류도많고 너무좋네요",
+      "date": "2026-10-09",
+      "body": "친절하게 설명도 잘해주시구 게임종류도많고 너무좋네요\n\n노리박스 국산 TV연결형 레트로 가정용 오락실게임기",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjEwMDlfMjI5/MDAxNzkxNTAxNDA3Mzg1.-5NmdegrpsQr5bYYScbXl4QidThiLaMfaIcs7HFY4kUg.sPIQQbNOxowT7EFrXV6GmP9YOVuW9lU2Pgryvb73rOwg.JPEG/image.jpeg",
+          "width": 740,
+          "height": 986
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/2670569822",
+          "label": "노리박스 국산 TV연결형 레트로 가정용 오락실게임기"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4004?menuid=9"
+    },
+    {
+      "id": 4003,
+      "title": "없는게임도 주인장님이 잘 찾아주시고 구동도 쉽고 너무",
+      "date": "2026-10-09",
+      "body": "없는게임도 주인장님이 잘 찾아주시고\n\n구동도 쉽고 너무 만족합니다.\n\n어서 구매들 하세요.\n\n노리박스 레볼루션 RV팩 128G 7078게임 TV연결형 분리기통 오락실게임기",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjEwMDlfOTkg/MDAxNzkxNTAxMzkwMTM5.RX7Sb6gQTR9WeUgambkedt73ksL7VR_2nygSPmFiq2kg.IlzSQWMda7knC0CiOht80IoludiL3ucEAAsPkDpfGR0g.JPEG/image.jpg",
+          "width": 740,
+          "height": 986
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/12326416049",
+          "label": "노리박스 레볼루션 RV팩 128G 7078게임 TV연결형 분리기통 오락실게임기"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4003?menuid=9"
+    },
     {
       "id": 4001,
       "title": "추억을 회상하며 게임기를 찾든중 노리박스가 구매자의 만",
