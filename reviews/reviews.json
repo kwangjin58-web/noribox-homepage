@@ -3,6 +3,9 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4042,
+    4041,
+    4040,
     4037,
     4035,
     4028,
@@ -1546,6 +1549,66 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4042,
+      "title": "문의도 친절하게 바로 연락주셨고..심지어 저희는 해외로",
+      "date": "2026-10-19",
+      "body": "문의도 친절하게 바로 연락주셨고..심지어 저희는 해외로 비행기로 실어서 왔는데 꼼꼼하게 포장까지ㅠㅠ 덕분에 한곳도 상하지 않고 귀하게 모셔와서 아이들과 신나게 오락실게임하며 한국의 그리움도 채우고.. 즐거움도 채웁니다. 좋은 게임기를 만들어 주셔서 감사합니다!!\n\n노리박스 신형HX 27+ 가정용오락실게임기 레트로게임기 휴게실오락기",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjEwMTlfMjk5/MDAxNzkyMzY1NDI1OTEw.htdI9LZeXOQ2K6nbshVc5hahLxqlkLd6TB1FF5M78YQg.esdnRCd3YDGozWp8RhF4pTAXQNLwdNUS_eRsryAGtU4g.JPEG/image.jpg",
+          "width": 740,
+          "height": 986
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/5744824019",
+          "label": "노리박스 신형HX 27+ 가정용오락실게임기 레트로게임기 휴게실오락기"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4042?menuid=9"
+    },
+    {
+      "id": 4041,
+      "title": "건콘 구입도 했는데 셋팅도 너무친절하게 얘기 해주시고",
+      "date": "2026-10-19",
+      "body": "건콘 구입도 했는데 셋팅도 너무친절하게 얘기 해주시고 역시 노리박스입니다.\n\n노리박스 하이퍼PC 프로 게이밍본체",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjEwMTlfMTE1/MDAxNzkyMzY1NDA4NDUy.g1bGQRdVU7tz6vYXQYz7yyaNH3pz4Ys1uw6fP02l2Rsg.Ifc53mAybNOcgWKaS8-3pQDgP4TrlEvaFotB5XmO7Hsg.JPEG/image.jpg",
+          "width": 740,
+          "height": 555
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/7552219377",
+          "label": "노리박스 하이퍼PC 프로 게이밍본체"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4041?menuid=9"
+    },
+    {
+      "id": 4040,
+      "title": "너무친절 하시고 건콘 겜 재밌네요 감사합니다.",
+      "date": "2026-10-19",
+      "body": "너무친절 하시고 건콘 겜 재밌네요\n\n감사합니다.\n\nX-GUNNER 엑스거너 프로 무선 라이트건 PC용 건콘",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjEwMTlfMjI0/MDAxNzkyMzY1MzkwMTk5.RXM3D7YQOdNlzDzJ2HnRK2Arvl-zxiFnytq0z0sZX9wg.K62huy_vMbac6Spk_ViSYKJFwo74cvU2GIeTFRt68Bcg.JPEG/image.jpg",
+          "width": 740,
+          "height": 555
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/12238673897",
+          "label": "X-GUNNER 엑스거너 프로 무선 라이트건 PC용 건콘"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4040?menuid=9"
+    },
     {
       "id": 4037,
       "title": "테크모월드컵98 이나 스트리트후프 요고 2개가 없어서",
