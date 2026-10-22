@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [가정용 오락기의 구성품은 어떻게 확인해야 하나요?](https://noribox.org/story/check-home-arcade-components): 가정용 오락기의 구성품은 주문 내역의 제품명과 옵션을 기준으로 본체·전원·화면·조작 관련 부품과 별도 구매품을 나누어 확인하세요.
 - [오락기 설치 뒤 처음 점검할 것은 무엇인가요?](https://noribox.org/story/first-checks-after-home-arcade-installation): 오락기 설치 뒤에는 외관과 흔들림, 주문 구성품, 화면·소리·조작 반응을 순서대로 확인하고 결과를 사진과 메모로 남기세요.
 - [가정용 오락기 전원 연결은 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-power-connection-checks): 가정용 오락기는 제품에 맞는 전원선인지 확인하고 콘센트와 멀티탭 상태, 케이블 동선, 첫 작동 반응을 차례로 살펴야 합니다.
 - [오락기 조작부 형태는 어떻게 비교해야 하나요?](https://noribox.org/story/compare-home-arcade-control-layouts): 오락기 조작부는 일체형·분리형 구조, 이용 인원, 놓는 높이와 면적, 조이스틱·버튼 배치를 실제 사용 장면에 맞춰 비교하세요.
@@ -46,7 +47,6 @@
 - [가정용 오락기의 조이스틱과 버튼은 어떻게 확인해야 하나요?](https://noribox.org/story/home-arcade-joystick-button-check): 가정용 오락기의 조이스틱과 버튼은 외형보다 방향 입력, 버튼별 반응, 손이 닿는 거리와 두 사람이 사용할 공간을 실제 사용 순서에 맞춰 확인해야 합니다.
 - [오락기 게임은 나중에 추가하거나 업데이트할 수 있나요?](https://noribox.org/story/home-arcade-game-updates): 오락기 게임의 추가·업데이트 가능 여부는 제품과 게임팩마다 다르므로 모델명과 현재 구성을 확인한 뒤 해당 제품의 공식 안내를 따라야 합니다.
 - [원하는 게임이 들어 있는지 구매 전에 어떻게 확인하나요?](https://noribox.org/story/check-game-inclusion-before-buying): 원하는 게임의 정확한 제목과 제품·게임팩 이름을 맞춘 뒤, 최신 판매 안내와 판매자 답변을 함께 기록하면 구매 전 수록 여부를 더 분명하게 확인할 수 있습니다.
-- [철권이나 스트리트 파이터를 집에서 즐기려면 어떤 제품을 골라야 하나요?](https://noribox.org/story/home-fighting-arcade-choice): 철권이나 스트리트 파이터를 집에서 즐길 제품은 게임 수보다 원하는 게임의 현재 수록·실행 안내, 2인 조작 환경과 설치 공간을 함께 확인해 고르는 편이 좋습니다.
 
 ## 구매후기
 
