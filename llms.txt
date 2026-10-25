@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [가정용 오락기 화면 크기는 어떻게 비교해야 하나요?](https://noribox.org/story/compare-home-arcade-screen-size): 가정용 오락기 화면 크기는 숫자만 보지 말고 실제 조작 위치의 거리와 눈높이, 본체 전체 크기, 설치 공간을 함께 비교하세요.
 - [가정용 오락기의 구성품은 어떻게 확인해야 하나요?](https://noribox.org/story/check-home-arcade-components): 가정용 오락기의 구성품은 주문 내역의 제품명과 옵션을 기준으로 본체·전원·화면·조작 관련 부품과 별도 구매품을 나누어 확인하세요.
 - [오락기 설치 뒤 처음 점검할 것은 무엇인가요?](https://noribox.org/story/first-checks-after-home-arcade-installation): 오락기 설치 뒤에는 외관과 흔들림, 주문 구성품, 화면·소리·조작 반응을 순서대로 확인하고 결과를 사진과 메모로 남기세요.
 - [가정용 오락기 전원 연결은 무엇을 확인해야 하나요?](https://noribox.org/story/home-arcade-power-connection-checks): 가정용 오락기는 제품에 맞는 전원선인지 확인하고 콘센트와 멀티탭 상태, 케이블 동선, 첫 작동 반응을 차례로 살펴야 합니다.
@@ -46,7 +47,6 @@
 - [오락기 조작감이 실제 오락실과 다른 이유는 무엇인가요?](https://noribox.org/story/why-arcade-controls-feel-different): 오락기 조작감은 조이스틱과 버튼의 구성뿐 아니라 조작부 높이, 플레이 자세, 게임별 입력 설정과 사용 상태가 함께 달라지면 실제 오락실과 다르게 느껴질 수 있습니다.
 - [가정용 오락기의 조이스틱과 버튼은 어떻게 확인해야 하나요?](https://noribox.org/story/home-arcade-joystick-button-check): 가정용 오락기의 조이스틱과 버튼은 외형보다 방향 입력, 버튼별 반응, 손이 닿는 거리와 두 사람이 사용할 공간을 실제 사용 순서에 맞춰 확인해야 합니다.
 - [오락기 게임은 나중에 추가하거나 업데이트할 수 있나요?](https://noribox.org/story/home-arcade-game-updates): 오락기 게임의 추가·업데이트 가능 여부는 제품과 게임팩마다 다르므로 모델명과 현재 구성을 확인한 뒤 해당 제품의 공식 안내를 따라야 합니다.
-- [원하는 게임이 들어 있는지 구매 전에 어떻게 확인하나요?](https://noribox.org/story/check-game-inclusion-before-buying): 원하는 게임의 정확한 제목과 제품·게임팩 이름을 맞춘 뒤, 최신 판매 안내와 판매자 답변을 함께 기록하면 구매 전 수록 여부를 더 분명하게 확인할 수 있습니다.
 
 ## 구매후기
 
