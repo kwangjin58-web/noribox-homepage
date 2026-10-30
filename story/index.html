@@ -26,21 +26,32 @@
 
   <main id="main">
     <section class="story-hero section-space" aria-labelledby="story-title">
-      <div class="section-label">STORIES · NORIBOX</div>
-      <div class="story-hero-copy reveal"><h1 id="story-title">만드는 마음을<br>기록합니다.</h1><p>제품 뒤에 있는 사람들, 오래 고민한 과정, 함께 만든 추억을 천천히 쌓아갑니다.</p></div>
+      <div class="story-hero-copy reveal">
+        <p class="section-label">STORIES · NORIBOX</p>
+        <h1 id="story-title">노리박스 이야기 <span>— 기록</span></h1>
+        <p>제품 뒤에 있는 사람들, 오래 고민한 과정, 함께 만든 추억을 천천히 쌓아갑니다.</p>
+      </div>
     </section>
     <section class="story-index section-space" aria-label="이야기 목록">
-      <div class="story-search reveal">
+      <div class="story-toolbar reveal">
+        <div class="story-categories" role="group" aria-label="이야기 분류">
+          <button type="button" class="story-category is-active" data-category="전체" aria-pressed="true">전체</button>
+          <button type="button" class="story-category" data-category="구매 가이드" aria-pressed="false">구매 가이드</button>
+          <button type="button" class="story-category" data-category="설치와 관리" aria-pressed="false">설치와 관리</button>
+          <button type="button" class="story-category" data-category="게임과 가족" aria-pressed="false">게임과 가족</button>
+          <button type="button" class="story-category" data-category="브랜드" aria-pressed="false">브랜드</button>
+        </div>
         <form class="story-search-form" role="search" novalidate>
-          <label for="story-search-input">이야기 검색</label>
+          <label class="sr-only" for="story-search-input">이야기 검색</label>
           <div class="story-search-field">
-            <input id="story-search-input" type="search" inputmode="search" autocomplete="off" placeholder="궁금한 이야기를 검색해 보세요" aria-describedby="story-search-status">
+            <input id="story-search-input" type="search" inputmode="search" autocomplete="off" placeholder="이야기 검색" aria-describedby="story-search-status">
             <button type="button" class="story-search-clear" aria-label="검색어 지우기" hidden>지우기</button>
           </div>
         </form>
-        <p class="story-search-status" id="story-search-status" aria-live="polite">이야기를 불러오고 있습니다.</p>
       </div>
+      <p class="story-search-status" id="story-search-status" aria-live="polite">이야기를 불러오고 있습니다.</p>
       <ol class="blog-list" id="list" aria-live="polite"><li class="blog-loading">이야기를 불러오고 있습니다.</li></ol>
+      <nav class="story-pagination" id="pagination" aria-label="이야기 페이지" hidden></nav>
     </section>
   </main>
 
@@ -53,33 +64,68 @@
     var input = document.getElementById('story-search-input');
     var clearButton = document.querySelector('.story-search-clear');
     var status = document.getElementById('story-search-status');
+    var categoryButtons = Array.prototype.slice.call(document.querySelectorAll('.story-category'));
+    var pagination = document.getElementById('pagination');
     var allPosts = [];
+    var activeCategory = '전체';
+    var currentPage = 1;
+    var pageSize = 12;
     function el(tag, cls, text){ var n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; }
     function fmtDate(s){ var d=new Date(s+'T00:00:00'); if(isNaN(d))return s||''; return d.getFullYear()+'. '+(d.getMonth()+1)+'. '+d.getDate()+'.'; }
     function normalize(value){ return String(value||'').normalize('NFKC').toLocaleLowerCase('ko-KR').replace(/\s+/g,' ').trim(); }
+    function categoryOf(post){
+      var text=normalize([post.title,Array.isArray(post.tags)?post.tags.join(' '):''].join(' '));
+      if(/브랜드|만들기 시작|제품 원칙|노리박스는/.test(text))return '브랜드';
+      if(/아이|가족|함께|게임 목록|게임 수록|재미|추천 게임/.test(text))return '게임과 가족';
+      if(/설치|통풍|전원|배송|구성품|점검|관리|보관|연결|청소|공간|크기|조작부/.test(text))return '설치와 관리';
+      return '구매 가이드';
+    }
+    function readMinutes(post){ return Math.max(2,Math.ceil(String(post.body||'').replace(/\s+/g,'').length/650)); }
     function searchableText(post){
       return normalize([post.title,post.summary,Array.isArray(post.tags)?post.tags.join(' '):'',post.body].join(' '));
     }
-    function render(posts, query){
+    function renderPagination(total){
+      var pages=Math.ceil(total/pageSize);
+      if(pages<=1){pagination.hidden=true;pagination.replaceChildren();return;}
+      var items=[];
+      for(var page=1;page<=pages;page++){
+        var button=el('button',page===currentPage?'is-current':'',String(page));
+        button.type='button'; button.dataset.page=String(page);
+        if(page===currentPage)button.setAttribute('aria-current','page');
+        button.setAttribute('aria-label',page+'페이지'); items.push(button);
+      }
+      pagination.replaceChildren.apply(pagination,items); pagination.hidden=false;
+    }
+    function render(posts, query, total){
       if(!Array.isArray(posts)||posts.length===0){
         var message=query?'검색 결과가 없습니다. 다른 검색어를 입력해 보세요.':'아직 올라온 글이 없습니다.';
         list.replaceChildren(el('li','blog-empty',message));
-        status.textContent=query?'검색 결과 0개':'전체 이야기 0개';
+        status.textContent=query?'검색 결과 0개':activeCategory+' 이야기 0개';
+        pagination.hidden=true;
         return;
       }
-      var cards=posts.map(function(p,index){
+      var cards=posts.map(function(p){
         var li=el('li','blog-card reveal');
         var a=el('a'); a.href=p.url?String(p.url):'post.html?id='+encodeURIComponent(p.id||'');
-        var number=el('span','blog-number',String(index+1).padStart(2,'0'));
+        var media=el('span','blog-media');
+        var imageData=Array.isArray(p.images)&&p.images.length?p.images[0]:null;
+        if(imageData&&imageData.src){
+          var img=el('img'); img.src=String(imageData.src); img.alt=String(imageData.alt||''); img.loading='lazy'; img.decoding='async';
+          img.addEventListener('error',function(){media.classList.add('is-fallback');img.remove();}); media.appendChild(img);
+        }else media.classList.add('is-fallback');
+        media.appendChild(el('span','blog-media-label','NORIBOX STORY'));
         var copy=el('div','blog-card-copy');
         var time=el('time',null,fmtDate(p.date)); time.setAttribute('datetime',String(p.date||''));
-        copy.append(time,el('h2',null,String(p.title||'(제목 없음)')));
+        var meta=el('p','blog-meta');
+        meta.append(time,document.createTextNode(' · '+categoryOf(p)+' · '+readMinutes(p)+'분'));
+        copy.append(el('h2',null,String(p.title||'(제목 없음)')));
         if(p.summary)copy.appendChild(el('p','blog-summary',String(p.summary)));
-        var arrow=el('span','blog-arrow','↗'); arrow.setAttribute('aria-hidden','true');
-        a.append(number,copy,arrow); li.appendChild(a); return li;
+        copy.appendChild(meta);
+        a.append(media,copy); li.appendChild(a); return li;
       });
       list.replaceChildren.apply(list,cards);
-      status.textContent=query?'‘'+query+'’ 검색 결과 '+posts.length+'개':'전체 이야기 '+posts.length+'개';
+      status.textContent=query?'‘'+query+'’ 검색 결과 '+total+'개':activeCategory+' 이야기 '+total+'개';
+      renderPagination(total);
       if(window.activateReveal)window.activateReveal(cards);
       else cards.forEach(function(card){card.classList.add('is-visible');});
     }
@@ -87,16 +133,31 @@
       var query=input.value.trim();
       var normalizedQuery=normalize(query);
       var terms=normalizedQuery.split(' ').filter(Boolean);
-      var filtered=terms.length?allPosts.filter(function(post){
+      var filtered=allPosts.filter(function(post){return activeCategory==='전체'||categoryOf(post)===activeCategory;});
+      if(terms.length)filtered=filtered.filter(function(post){
         var haystack=searchableText(post);
         return terms.every(function(term){return haystack.indexOf(term)!==-1;});
-      }):allPosts;
+      });
+      var total=filtered.length;
+      var maxPage=Math.max(1,Math.ceil(total/pageSize));
+      if(currentPage>maxPage)currentPage=maxPage;
+      var visiblePosts=filtered.slice((currentPage-1)*pageSize,currentPage*pageSize);
       clearButton.hidden=!query;
-      render(filtered,query);
+      render(visiblePosts,query,total);
     }
     form.addEventListener('submit',function(event){event.preventDefault();applySearch();});
-    input.addEventListener('input',applySearch);
-    clearButton.addEventListener('click',function(){input.value='';applySearch();input.focus();});
+    input.addEventListener('input',function(){currentPage=1;applySearch();});
+    clearButton.addEventListener('click',function(){input.value='';currentPage=1;applySearch();input.focus();});
+    categoryButtons.forEach(function(button){button.addEventListener('click',function(){
+      activeCategory=button.dataset.category||'전체'; currentPage=1;
+      categoryButtons.forEach(function(item){var selected=item===button;item.classList.toggle('is-active',selected);item.setAttribute('aria-pressed',String(selected));});
+      applySearch();
+    });});
+    pagination.addEventListener('click',function(event){
+      var button=event.target.closest('button[data-page]'); if(!button)return;
+      currentPage=Number(button.dataset.page)||1; applySearch();
+      document.querySelector('.story-toolbar').scrollIntoView({behavior:'smooth',block:'start'});
+    });
     fetch('posts.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(posts){
       allPosts=Array.isArray(posts)?posts.slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));}):[];
       applySearch();
