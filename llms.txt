@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [오락기 사용 시간을 가족과 어떻게 정하면 좋나요?](https://noribox.org/story/set-family-home-arcade-play-time): 가족의 오락기 사용 시간은 주중과 주말 기준, 한 차례의 종료 시점, 번갈아 쓰는 순서와 기록 방법을 함께 정하면 관리하기 쉽습니다.
 - [가정용 오락기 의자와 받침대는 어떻게 고르나요?](https://noribox.org/story/choose-home-arcade-chair-and-stand): 가정용 오락기 의자는 발과 팔이 안정되는 높이로 고르고, 받침대는 정확한 제품의 크기와 지지면이 맞는지 확인해야 합니다.
 - [오락기 케이블은 어떻게 정리해야 하나요?](https://noribox.org/story/organize-home-arcade-cables): 오락기 케이블은 전원·화면·조작부 연결선으로 구분하고 양쪽 단자를 표시한 뒤, 통풍구와 이동 통로를 피해 여유 있게 고정하세요.
 - [오락기 주변 통풍 공간은 어떻게 확인해야 하나요?](https://noribox.org/story/check-home-arcade-ventilation-space): 오락기 주변 통풍 공간은 제품별 통풍구 위치를 먼저 확인하고 벽·가구·커튼·케이블이 공기 흐름을 가리지 않도록 배치해야 합니다.
@@ -46,7 +47,6 @@
 - [오락기를 안전하게 켜고 끄는 방법은 무엇인가요?](https://noribox.org/story/safe-home-arcade-power-on-off): 오락기를 켜고 끌 때는 케이블과 주변을 확인하고, 제품별 전원·종료 안내를 차례로 따라야 합니다.
 - [가정용 오락기는 인터넷 연결이 필요한가요?](https://noribox.org/story/does-home-arcade-need-internet): 가정용 오락기의 인터넷 필요 여부는 제품과 사용 기능에 따라 다르므로, 평소 게임 실행·업데이트·별도 연동 조건을 나눠 확인해야 합니다.
 - [아파트에서 오락기를 사용할 때 소음을 줄이는 방법은 무엇인가요?](https://noribox.org/story/reduce-home-arcade-noise-apartment): 아파트에서 오락기 소음을 줄이려면 스피커 소리와 조작·바닥 진동을 나눠 확인하고, 안정적인 배치와 사용 시간대를 함께 조정해야 합니다.
-- [오락기 소리는 집에서 어떻게 조절하나요?](https://noribox.org/story/how-to-adjust-home-arcade-volume): 집에서 오락기 소리를 조절할 때는 제품의 음량 조절 위치와 TV 같은 연결 화면의 음량을 구분하고, 낮은 단계에서 게임별 차이를 확인해야 합니다.
 
 ## 구매후기
 
