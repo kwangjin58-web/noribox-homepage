@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [오락기 화면과 눈높이는 어떻게 맞춰야 하나요?](https://noribox.org/story/align-home-arcade-screen-eye-level): 오락기 화면과 눈높이는 실제 조작 자세에서 고개를 과하게 들거나 숙이지 않고 화면 전체를 편하게 볼 수 있는지 확인해 맞추세요.
 - [오락기 구매 후 주문 정보는 어떻게 보관해야 하나요?](https://noribox.org/story/store-home-arcade-order-information): 오락기 주문 정보는 주문번호·구매일·정확한 제품명과 옵션을 한곳에 적고, 구성품 사진과 구매 내역을 종이와 디지털로 나눠 보관하세요.
 - [오락기 사용 시간을 가족과 어떻게 정하면 좋나요?](https://noribox.org/story/set-family-home-arcade-play-time): 가족의 오락기 사용 시간은 주중과 주말 기준, 한 차례의 종료 시점, 번갈아 쓰는 순서와 기록 방법을 함께 정하면 관리하기 쉽습니다.
 - [가정용 오락기 의자와 받침대는 어떻게 고르나요?](https://noribox.org/story/choose-home-arcade-chair-and-stand): 가정용 오락기 의자는 발과 팔이 안정되는 높이로 고르고, 받침대는 정확한 제품의 크기와 지지면이 맞는지 확인해야 합니다.
@@ -46,7 +47,6 @@
 - [스탠드형 오락기를 집 안에서 옮길 때 무엇을 조심해야 하나요?](https://noribox.org/story/move-upright-arcade-safely): 스탠드형 오락기는 전원과 케이블을 분리한 뒤 이동 경로를 비우고, 정확한 모델의 구조를 확인해 두 사람이 함께 옮기는 편이 안전합니다.
 - [오락기 화면과 조작부는 어떻게 청소하나요?](https://noribox.org/story/clean-home-arcade-screen-controls): 오락기 화면과 조작부는 전원을 끈 뒤 부드러운 천과 마른 도구로 나누어 닦고 제품별 소재 안내를 확인해야 합니다.
 - [오락기를 안전하게 켜고 끄는 방법은 무엇인가요?](https://noribox.org/story/safe-home-arcade-power-on-off): 오락기를 켜고 끌 때는 케이블과 주변을 확인하고, 제품별 전원·종료 안내를 차례로 따라야 합니다.
-- [가정용 오락기는 인터넷 연결이 필요한가요?](https://noribox.org/story/does-home-arcade-need-internet): 가정용 오락기의 인터넷 필요 여부는 제품과 사용 기능에 따라 다르므로, 평소 게임 실행·업데이트·별도 연동 조건을 나눠 확인해야 합니다.
 
 ## 구매후기
 
