@@ -3,6 +3,7 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4096,
     4094,
     4093,
     4092,
@@ -1575,6 +1576,26 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4096,
+      "title": "추억의 보글보글 집에서 할 수 있어서 너무 좋아요.",
+      "date": "2026-11-09",
+      "body": "추억의 보글보글 집에서 할 수 있어서 너무 좋아요.\n\n기존 노리박스 처분하고 레볼루션 구매했는데 중복되는 게임이 없는건 아니지만 게임 화질은 훨씬 좋네요.\n\n노리박스 레볼루션 RV팩 128G 7078게임 TV연결형 오락실게임기 철권태그,테크모98",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjExMDlfMTY5/MDAxNzk0MTc5Nzk4NjIy.jmACDwdvRzHtp1hIiBlz2YTmlevX9iSFs-IjlCR_boUg.2dZ48W_tPHkj-ztUKVQiFFb_50fM-1UqhYaJUO5Ee-wg.JPEG/image.jpg",
+          "width": 740,
+          "height": 555
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/12326416049",
+          "label": "노리박스 레볼루션 RV팩 128G 7078게임 TV연결형 오락실게임기 철권태그,테크모98"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4096?menuid=9"
+    },
     {
       "id": 4094,
       "title": "한달동안 한번 고장으로 교환 받았는데 서비스가 최고네요",
