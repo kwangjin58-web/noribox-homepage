@@ -3,6 +3,7 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4113,
     4110,
     4109,
     4103,
@@ -1581,6 +1582,20 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4113,
+      "title": "사이즈 딱 맞아요 배송도 꼼꼼하게 빠르게 도착했어요",
+      "date": "2026-11-14",
+      "body": "사이즈 딱 맞아요 배송도 꼼꼼하게 빠르게 도착했어요\n\n노리박스 오락기 전용받침대",
+      "images": [],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/2655134551",
+          "label": "노리박스 오락기 전용받침대"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4113?menuid=9"
+    },
     {
       "id": 4110,
       "title": "의외인 게임도 있어서 엄청 놀랬어요 평소에 하고 싶은",
