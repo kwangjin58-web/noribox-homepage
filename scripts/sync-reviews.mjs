@@ -80,7 +80,13 @@ async function fetchArticleList() {
     const url = `https://apis.naver.com/cafe-web/cafe2/ArticleListV2dot1.json?search.clubid=${cafeId}&search.queryType=lastArticle&search.menuid=${menuId}&search.page=${page}&search.perPage=50`;
     const payload = await fetchJson(url);
     const result = payload?.message?.result;
-    const items = Array.isArray(result?.articleList) ? result.articleList : [];
+    if (!Array.isArray(result?.articleList) || typeof result.hasNext !== 'boolean') {
+      throw new Error(`구매후기 목록 ${page}페이지 응답 형식이 올바르지 않습니다.`);
+    }
+    const items = result.articleList;
+    if (result.hasNext && (items.length === 0 || page === 100)) {
+      throw new Error(`구매후기 목록을 끝까지 확인하지 못했습니다 (${page}페이지).`);
+    }
     articles.push(...items.filter((item) => Number(item.menuId) === menuId));
     if (!result?.hasNext || items.length === 0) break;
   }
@@ -306,6 +312,15 @@ const seen = new Set(existing.seenArticleIds.map(Number));
 for (const id of existingById.keys()) seen.add(id);
 
 const articleList = await fetchArticleList();
+const sourceIds = new Set(articleList.map((article) => Number(article.articleId)));
+const previouslySkipped = [...sourceIds].filter((id) => seen.has(id) && !existingById.has(id));
+const absentFromSource = [...existingById.keys()].filter((id) => !sourceIds.has(id));
+if (previouslySkipped.length) {
+  console.warn(`카페 목록에 있으나 과거에 게시하지 않은 후기 ${previouslySkipped.length}건: ${previouslySkipped.join(', ')}`);
+}
+if (absentFromSource.length) {
+  console.warn(`카페 목록에서 확인되지 않는 기존 후기 ${absentFromSource.length}건: ${absentFromSource.join(', ')}`);
+}
 const pending = articleList.filter((article) => !seen.has(Number(article.articleId)));
 console.log(`구매후기 목록 ${articleList.length}건, 새로 확인할 글 ${pending.length}건`);
 const forceRebuild = process.argv.includes('--rebuild');
