@@ -4,7 +4,7 @@ import { cp, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = fileURLToPath(new URL('../../', import.meta.url));
 
@@ -31,7 +31,7 @@ test('offline sync → SEO/footer audit preserves customer originals and fails c
     };`);
     const run = (script, args = []) => execFileSync(process.execPath, [...args, `scripts/${script}`], { cwd: temp, encoding: 'utf8', stdio: 'pipe' });
     const before = JSON.parse(await readFile(path.join(temp, 'reviews/reviews.json'), 'utf8'));
-    run('sync-reviews.mjs', ['--import', mock]);
+    run('sync-reviews.mjs', ['--import', pathToFileURL(mock).href]);
     const synced = JSON.parse(await readFile(path.join(temp, 'reviews/reviews.json'), 'utf8'));
     assert.deepEqual(synced.reviews.filter((review) => review.id !== id), before.reviews);
     assert.equal(synced.reviews[0].title, title);

@@ -1,3 +1,4 @@
+import { reviewListCard } from './review-list-card.mjs';
 import { execFile } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -241,7 +242,7 @@ function listPage(reviews, page, totalPages) {
     { '@type': 'ListItem', position: 1, name: '홈', item: `${site}/` },
     { '@type': 'ListItem', position: 2, name: '구매후기', item: `${site}/reviews/` }
   ] };
-  const rows = reviews.map((review) => `<tr><td class="review-number">${review.id}</td><td><a class="review-title" href="${pageRoot}${review.id}.html">${esc(review.title)}</a><span class="review-mobile-meta">${formatDate(review.date)}</span></td><td><time datetime="${review.date}">${formatDate(review.date)}</time></td><td aria-label="첨부 사진 ${review.images.length}장">${review.images.length ? `📷 ${review.images.length}` : '—'}</td></tr>`).join('\n');
+  const rows = reviews.map((review) => reviewListCard(review, pageRoot)).join('\n');
   return `<!doctype html>
 <html lang="ko">
 ${head({ title, description, canonical, prefix, ld: [collectionLd, breadcrumbLd] })}
@@ -252,7 +253,7 @@ ${head({ title, description, canonical, prefix, ld: [collectionLd, breadcrumbLd]
     <header class="reviews-heading"><p class="reviews-kicker">CUSTOMER REVIEWS</p><h1>구매후기</h1><p>노리박스를 구매한 고객이 네이버 카페에 공개한 실제 사용후기입니다.</p><a href="https://cafe.naver.com/f-e/cafes/${cafeId}/menus/${menuId}" target="_blank" rel="noopener">네이버 카페 원문 게시판 ↗</a></header>
     <section class="review-board" aria-label="구매후기 글 목록">
       <div class="review-board-summary"><strong>전체 ${reviewsTotal.toLocaleString('ko-KR')}건</strong><span>${page} / ${totalPages} 페이지</span></div>
-      <div class="review-table-wrap"><table><thead><tr><th>번호</th><th>제목</th><th>작성일</th><th>사진</th></tr></thead><tbody>${rows}</tbody></table></div>
+      <div class="review-card-grid">${rows}</div>
       ${pagination(page, totalPages)}
     </section>
   </main>
