@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [오락기 옆에 구성품 수납공간은 어떻게 마련하나요?](https://noribox.org/story/organize-home-arcade-accessory-storage): 오락기 구성품은 제품과 용도별로 나누고, 통풍구와 조작 동선을 피한 낮고 안정적인 수납공간에 보관하세요.
 - [오락기 조작부 앞에는 얼마나 넓은 공간을 비워야 하나요?](https://noribox.org/story/plan-home-arcade-front-clearance): 오락기 조작부 앞 공간은 고정 수치보다 실제 조작 자세와 1·2인 사용, 의자와 통로의 움직임을 기준으로 직접 시험해 확보하세요.
 - [오락기 설치 위치의 바닥은 무엇을 확인해야 하나요?](https://noribox.org/story/check-home-arcade-floor): 오락기 설치 바닥은 평평함과 흔들림, 물기, 받침면 접촉 상태를 확인하고 설치 뒤에도 이동 경로와 케이블 눌림을 다시 점검하세요.
 - [가정용 오락기를 오래 사용하지 않을 때 어떻게 보관하나요?](https://noribox.org/story/store-home-arcade-long-term): 오락기를 오래 보관할 때는 전원과 연결 상태를 기록하고, 화면·조작부·케이블을 마른 상태로 정리한 뒤 실내 보관 상태를 정기적으로 확인하세요.
@@ -46,7 +47,6 @@
 - [새 오락기와 중고 오락기는 어떤 기준으로 비교해야 하나요?](https://noribox.org/story/new-versus-used-home-arcade-checklist): 가정용 오락기를 새 제품과 중고 제품 중에서 고를 때 제품 구성, 현재 상태, 전달·설치 조건, 문의 가능 범위를 같은 기준으로 확인하는 방법을 정리합니다.
 - [가정용 오락기 A/S를 요청하기 전에 준비할 것은 무엇인가요?](https://noribox.org/story/home-arcade-service-request-preparation): 가정용 오락기 A/S 문의 전 주문한 제품명과 구매 내역, 증상이 나타나는 순서, 사진이나 영상을 모아 판매자에게 전달하는 방법을 정리합니다.
 - [조이스틱이나 버튼에 문제가 생기면 어떻게 해야 하나요?](https://noribox.org/story/joystick-button-not-working-checks): 조이스틱이나 버튼에 문제가 생기면 어느 조작이 언제 반응하지 않는지 기록하고, 전원을 끈 뒤 외부 상태만 확인해 판매자에게 알려야 합니다.
-- [오락기 게임이 실행되지 않을 때 무엇부터 확인해야 하나요?](https://noribox.org/story/arcade-game-not-starting-checks): 오락기 게임이 실행되지 않으면 전원·화면·게임 선택·조작 반응을 나눠 확인하고, 반복 조작 전에 현재 상태를 기록해야 합니다.
 
 ## 구매후기
 
