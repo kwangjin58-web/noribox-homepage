@@ -17,6 +17,7 @@
 
 ## 이야기(블로그)
 
+- [가정용 오락기 먼지 덮개는 언제 사용해야 하나요?](https://noribox.org/story/when-to-cover-home-arcade): 가정용 오락기 먼지 덮개는 전원을 끄고 본체가 식은 뒤 씌우고, 다시 켜기 전에 완전히 벗기세요.
 - [오락기 주변에서 음료와 간식은 어디에 두어야 하나요?](https://noribox.org/story/place-drinks-snacks-near-home-arcade): 음료와 간식은 오락기 본체·조작부·케이블에서 떨어진 안정적인 별도 테이블에 두고, 먹는 자리와 조작 자리를 나누세요.
 - [오락기 옆에 구성품 수납공간은 어떻게 마련하나요?](https://noribox.org/story/organize-home-arcade-accessory-storage): 오락기 구성품은 제품과 용도별로 나누고, 통풍구와 조작 동선을 피한 낮고 안정적인 수납공간에 보관하세요.
 - [오락기 조작부 앞에는 얼마나 넓은 공간을 비워야 하나요?](https://noribox.org/story/plan-home-arcade-front-clearance): 오락기 조작부 앞 공간은 고정 수치보다 실제 조작 자세와 1·2인 사용, 의자와 통로의 움직임을 기준으로 직접 시험해 확보하세요.
@@ -46,7 +47,6 @@
 - [가정용 오락기를 고를 때 가격 외에 무엇을 봐야 하나요?](https://noribox.org/story/home-arcade-beyond-price): 가정용 오락기는 가격과 함께 설치 공간, 기기 형태와 구성, 자주 할 게임, 구매 전 문의 내용을 확인해 고르는 것이 좋습니다.
 - [게임 수가 많은 오락기가 더 좋은 제품인가요?](https://noribox.org/story/game-count-home-arcade-choice): 가정용 오락기를 고를 때 게임 수만 보지 않고, 실제로 즐길 게임의 포함 여부와 조작·설치 환경을 함께 확인하는 방법을 정리합니다.
 - [새 오락기와 중고 오락기는 어떤 기준으로 비교해야 하나요?](https://noribox.org/story/new-versus-used-home-arcade-checklist): 가정용 오락기를 새 제품과 중고 제품 중에서 고를 때 제품 구성, 현재 상태, 전달·설치 조건, 문의 가능 범위를 같은 기준으로 확인하는 방법을 정리합니다.
-- [가정용 오락기 A/S를 요청하기 전에 준비할 것은 무엇인가요?](https://noribox.org/story/home-arcade-service-request-preparation): 가정용 오락기 A/S 문의 전 주문한 제품명과 구매 내역, 증상이 나타나는 순서, 사진이나 영상을 모아 판매자에게 전달하는 방법을 정리합니다.
 
 ## 구매후기
 
