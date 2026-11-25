@@ -3,6 +3,7 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4138,
     4133,
     4131,
     4127,
@@ -1589,6 +1590,31 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4138,
+      "title": "잼있게 잘 사용중입니다 아이들때문에 저희가 할수 없어서",
+      "date": "2026-11-25",
+      "body": "잼있게 잘 사용중입니다\n\n아이들때문에 저희가 할수 없어서\n\n한대 더 사야 하나 고민중이예요\n\n노리박스 복각판 27 레트로에디션 스탠드형 오락실게임기 DX팩",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjExMjVfMjUx/MDAxNzk1NTYyMTkyNzU1.5JVdNk2MDyQAsq-9r0Q6yn-w-otsD0DQa7LP-445P9Ug.Czax2ejQtPrQslZmNlsH0czRoWkL382xrN9kL9hM850g.JPEG/image.jpg",
+          "width": 740,
+          "height": 416
+        },
+        {
+          "url": "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fgi.esmplus.com%2Fkwangjin58%2Fcafe%2F%25EC%25A7%2584%25EC%25A7%259C%25ED%259B%2584%25EA%25B8%25B0%25EB%25A5%25BC%25EA%25B7%25B8%25EB%258C%2580%25EB%25A1%259C.jpg%22",
+          "width": null,
+          "height": null
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/5658763451",
+          "label": "노리박스 복각판 27 레트로에디션 스탠드형 오락실게임기 DX팩"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4138?menuid=9"
+    },
     {
       "id": 4133,
       "title": "노리박스 레볼루션 RV팩 128G 7078게임 TV",
