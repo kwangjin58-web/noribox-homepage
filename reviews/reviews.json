@@ -3,6 +3,8 @@
   "cafeId": 31425115,
   "menuId": 9,
   "seenArticleIds": [
+    4142,
+    4141,
     4139,
     4138,
     4133,
@@ -1591,6 +1593,56 @@
     32
   ],
   "reviews": [
+    {
+      "id": 4142,
+      "title": "너무 재미있게 하고 있습니다 다른기기로도 또 구매 하",
+      "date": "2026-11-27",
+      "body": "너무 재미있게 하고 있습니다\n\n다른기기로도 또 구매 하겠습니다.\n\n끝판왕 256GB 잠마28핀 한글게임팩 (업데이트가능)",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjExMjdfMjYz/MDAxNzk1NzM1MDEwODkw.psqqkm8hLdWUw8vTAv87Rd-sK6jrgq4tgJlFRnJ-VUkg.WjLuiy1yJ4vUrGY_ejIhhGjF3tgIv43kLXXHnqVGJtEg.JPEG/image.jpeg",
+          "width": 740,
+          "height": 986
+        },
+        {
+          "url": "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fgi.esmplus.com%2Fkwangjin58%2Fcafe%2F%25EC%25A7%2584%25EC%25A7%259C%25ED%259B%2584%25EA%25B8%25B0%25EB%25A5%25BC%25EA%25B7%25B8%25EB%258C%2580%25EB%25A1%259C.jpg%22",
+          "width": null,
+          "height": null
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/12638732719",
+          "label": "끝판왕 256GB 잠마28핀 한글게임팩 (업데이트가능)"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4142?menuid=9"
+    },
+    {
+      "id": 4141,
+      "title": "한층 더 편해지고 예뻐졌습니다. 여전히 튼튼하고 안정감",
+      "date": "2026-11-27",
+      "body": "한층 더 편해지고 예뻐졌습니다. 여전히 튼튼하고 안정감 좋습니다.\n\n노리박스 오락기 전용받침대",
+      "images": [
+        {
+          "url": "https://cafeptthumb-phinf.pstatic.net/MjAyNjExMjdfNjYg/MDAxNzk1NzM0OTkyODg2.g3HYrlDQoSrkX53wNn-3Rs6yi3qm5ikgAn6qDgzuMlgg.wRZrH51V_Lvm9AXZr7eOSY0RloN4ljcBSJGqzw3fdtkg.JPEG/image.jpg",
+          "width": 740,
+          "height": 970
+        },
+        {
+          "url": "https://dthumb-phinf.pstatic.net/?src=%22https%3A%2F%2Fgi.esmplus.com%2Fkwangjin58%2Fcafe%2F%25EC%25A7%2584%25EC%25A7%259C%25ED%259B%2584%25EA%25B8%25B0%25EB%25A5%25BC%25EA%25B7%25B8%25EB%258C%2580%25EB%25A1%259C.jpg%22",
+          "width": null,
+          "height": null
+        }
+      ],
+      "links": [
+        {
+          "url": "https://smartstore.naver.com/kjshop2/products/2655134551",
+          "label": "노리박스 오락기 전용받침대"
+        }
+      ],
+      "originalUrl": "https://cafe.naver.com/f-e/cafes/31425115/articles/4141?menuid=9"
+    },
     {
       "id": 4139,
       "title": "좋아요좋아요좋아요좋아요 좋아요좋아요좋아요좋아요 좋아요좋",
