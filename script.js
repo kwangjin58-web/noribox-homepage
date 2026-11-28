@@ -224,6 +224,22 @@ if (homeStories) {
         const href = post.url
           ? `story/${String(post.url).replace(/^\.\//, '')}`
           : `story/post.html?id=${encodeURIComponent(post.id || '')}`;
+        const preview = Array.isArray(post.images)
+          ? post.images.find((image) => image && image.src)
+          : null;
+        if (preview) {
+          const previewLink = makeElement('a', 'story-card-preview');
+          previewLink.href = href;
+          previewLink.setAttribute('aria-label', post.title || '이야기 읽기');
+          const image = makeElement('img');
+          image.src = new URL(preview.src, new URL('story/', document.baseURI)).href;
+          image.alt = preview.alt || post.title || '';
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          previewLink.append(image);
+          card.append(previewLink);
+          card.classList.add('story-card-with-preview');
+        }
         card.append(
           makeElement('span', '', formatStoryDate(post.date)),
           makeElement('h3', '', post.title || '(제목 없음)'),

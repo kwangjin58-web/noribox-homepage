@@ -318,3 +318,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .product-card:hover img, .featured-product-card:hover img, .story-card:hover { transform: none !important; }
   .catalog-card:hover img { transform: none !important; }
 }
+
+/* Homepage story previews use the first image already attached to each post. */
+[data-home-stories] .story-card-preview {
+  display: block;
+  position: static;
+  margin: 0 0 28px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+[data-home-stories] .story-card-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+[data-home-stories] .story-card-with-preview h3 { margin-top: 24px; }
