@@ -335,3 +335,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
   object-fit: cover;
 }
 [data-home-stories] .story-card-with-preview h3 { margin-top: 24px; }
+
+/* Matching outlined links for the homepage section actions. */
+.products-more .button,
+.home-reviews-more .button,
+.stories-more .button {
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.products-more .button:hover,
+.products-more .button:focus-visible,
+.home-reviews-more .button:hover,
+.home-reviews-more .button:focus-visible,
+.stories-more .button:hover,
+.stories-more .button:focus-visible {
+  background-color: var(--cobalt);
+  border-color: var(--cobalt);
+  color: var(--white);
+}

@@ -224,7 +224,7 @@ async function updateHomepageReviews(reviews) {
   const indexPath = path.join(root, 'index.html');
   const indexHtml = await readFile(indexPath, 'utf8');
   const cards = reviews.slice(0, 6).map(homeReviewCard).join('\n        ');
-  const block = `<!-- PURCHASE_REVIEWS_START -->\n    <section class="home-reviews section-space" id="reviews" aria-labelledby="home-reviews-title">\n      <header class="home-reviews-head reveal"><div class="section-label">04 · CUSTOMER REVIEWS</div><h2 id="home-reviews-title">직접 사용한 분들의 이야기</h2><p>노리박스를 구매한 고객이 네이버 카페에 공개한 실제 사용후기입니다.</p></header>\n      <div class="home-review-grid">${cards}</div>\n      <div class="home-reviews-more reveal"><a class="text-link" href="reviews/">구매후기 전체 보기 <span aria-hidden="true">→</span></a></div>\n    </section>\n    <!-- PURCHASE_REVIEWS_END -->`;
+  const block = `<!-- PURCHASE_REVIEWS_START -->\n    <section class="home-reviews section-space" id="reviews" aria-labelledby="home-reviews-title">\n      <header class="home-reviews-head reveal"><div class="section-label">04 · CUSTOMER REVIEWS</div><h2 id="home-reviews-title">직접 사용한 분들의 이야기</h2><p>노리박스를 구매한 고객이 네이버 카페에 공개한 실제 사용후기입니다.</p></header>\n      <div class="home-review-grid">${cards}</div>\n      <div class="home-reviews-more reveal"><a class="button button-dark" href="reviews/">구매후기 전체 보기 <span aria-hidden="true">→</span></a></div>\n    </section>\n    <!-- PURCHASE_REVIEWS_END -->`;
   const updated = indexHtml.replace(/<!-- PURCHASE_REVIEWS_START -->[\s\S]*?<!-- PURCHASE_REVIEWS_END -->/, block);
   if (updated === indexHtml) throw new Error('메인 구매후기 영역 표시자를 찾을 수 없습니다.');
   await writeFile(indexPath, updated, 'utf8');
